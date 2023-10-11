@@ -1,5 +1,6 @@
 {{!-- Dashboard Theme --}}
 <link rel="stylesheet" type="text/css" href="/assets/css/_remake.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 <p></p>
 
 <h1>Welcome to your Personal Dashboard!</h1>
@@ -11,7 +12,6 @@
     {{#for list in lists}}
       <div 
         class="list" object key:list-heading="@search" default:list-heading="List"
-        style = "border: 1px solid gray; width:200px;"
       >
         <div class="list__top">
           <p 

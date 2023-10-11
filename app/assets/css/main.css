@@ -1,6 +1,7 @@
 html[dashboard-theme="light mode"] {
     --bg-color: #FFFFFF;
     --text-color: black;
+    --accent-color: #48BBFF;
 }
 
 html[dashboard-theme="dark mode"] {
@@ -14,6 +15,21 @@ html[dashboard-theme="fun mode"] {
 }
 
 * {
+}
+
+.list {
+    border-radius: 15px;
+    border-color: var(--text-color);
+    padding: 10px;
+    margin: 10px;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.list__text {
+    font-weight: bold;
+    color: var(--accent-color);
+
 }
 
 html,
