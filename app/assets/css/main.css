@@ -49,6 +49,7 @@ html[dashboard-theme="fun mode"] {
 }
 
 .list__text {
+    text-align: center;
     font-weight: bold;
     font-style: italic;
     color: var(--accent-color);
@@ -77,14 +78,6 @@ body {
     color: var(--text-color);
     transition: var(--transition-time);
 }
-
-
-body[key\:dashboard-theme="dark mode"] {
-    background: #222;
-    color: #fff;
-    font-size: 500px;
-    transition: var(--transition-time);
-  }
 
 p {
     background-color: var(--bg-color);

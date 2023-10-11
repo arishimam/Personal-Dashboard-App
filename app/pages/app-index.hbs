@@ -3,7 +3,6 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <p></p>
-
 <h1>Welcome to your Personal Dashboard!</h1>
 
 <button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
@@ -30,7 +29,7 @@
             <div 
               class="item" object key:item-text="@search" edit:item-text
             >
-            <input type="checkbox" disable-events></button>
+            <input type="checkbox" disable-events onchange="thisTHING()"></button>
               <p 
                 class="item__text"
                 target:item-text="@innerText">{{default item.itemText "new list item"}}
@@ -44,4 +43,8 @@
       </div>
     {{/for}}
   </div>
+  <script>
+    function thisTHING() {
+    }
+  </script>
 </div>
