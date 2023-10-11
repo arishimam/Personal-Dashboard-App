@@ -10,9 +10,8 @@
 <body>
   {{#if currentUser}}
     <a class="nav__button" href="/app-index">Home</a>
-    
     <a class="nav__button" href="/about">About Us</a>
-    <a href="/user/logout">Logout</a>
+    <a class="nav__button" href="/index">Logout</a>
   {{else}}
     <a class="nav__button" href="/index">Home</a>
     <a class="nav__button" href="/about">About Us</a>
@@ -20,6 +19,16 @@
     &nbsp;
     <a class="nav__button" href="/user/login">Log in</a>
   {{/if}}
+
+  <p></p>
+  <div object key:dashboard-theme="Classic">
+    <div>Dashboard Theme: <b watch:dashboard-theme=@innerText>Light Mode</b></div>
+    <div><label><input type="radio" value="Light Mode" update:dashboard-theme name="dashboard-theme" checked>Light Mode</label></div>
+    <div><label><input type="radio" value="Dark Mode" update:dashboard-theme name="dashboard-theme">Dark Mode</label></div>
+    <div><label><input type="radio" value="Theme 3" update:dashboard-theme name="dashboard-theme">Theme 3</label></div>
+    <div><label><input type="radio" value="Theme 4" update:dashboard-theme name="dashboard-theme">Theme 4</label></div>
+    <div><label><input type="radio" value="Theme 5" update:dashboard-theme name="dashboard-theme">Theme 5</label></div>
+</div>
   {{!-- Show errors --}}
   {{#if flashErrors }}
     {{#each flashErrors }}
