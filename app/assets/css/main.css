@@ -33,6 +33,11 @@ html[dashboard-theme="fun mode"] {
     --transition-time: 1s;
 }
 
+.material-icons {
+    color: var(--text-color);
+    transition: var(--transition-time);
+}
+
 .dashboard {
     display: flex;
 }
@@ -45,6 +50,7 @@ html[dashboard-theme="fun mode"] {
     border-width: 2px;
     border-style: solid;
     display:block;
+    width: 175px;
 
 }
 
@@ -60,11 +66,15 @@ html[dashboard-theme="fun mode"] {
 }
 
 .item__text {
-    background-image: linear-gradient(var(--text-color), var(--text-color));
+    background-image: linear-gradient(var(--other-accent), var(--other-accent));
     background-repeat: no-repeat;
   
     background-size: 0px 100%;
-    transition: background-size 0.75s;
+    transition: background-size 0.5s;
+}
+
+.item__text:hover {
+    background-size: 100% 100%;
 }
 
 html,
