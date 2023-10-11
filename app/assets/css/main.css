@@ -23,7 +23,12 @@ html[dashboard-theme="fun mode"] {
 }
 
 * {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     --transition-time: 1s;
+}
+
+.dashboard {
+    display: flex;
 }
 
 .list {
@@ -33,12 +38,27 @@ html[dashboard-theme="fun mode"] {
     margin: 10px;
     border-width: 2px;
     border-style: solid;
+    display:block;
+
 }
 
 .list__text {
     font-weight: bold;
+    font-style: italic;
     color: var(--accent-color);
 
+}
+
+.item {
+    display: flex;
+}
+
+.item__text {
+    background-image: linear-gradient(var(--text-color), var(--text-color));
+    background-repeat: no-repeat;
+  
+    background-size: 0px 100%;
+    transition: background-size 0.75s;
 }
 
 html,
