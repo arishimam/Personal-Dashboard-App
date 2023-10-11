@@ -12,16 +12,27 @@ html[dashboard-theme="fun mode"] {
     --bg-color: hotpink;
 }
 
+* {
+}
+
 html,
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    transition: all 1s;
+    transition: var(--transition-time);
 }
+
+
+body[key\:dashboard-theme="dark mode"] {
+    background: #222;
+    color: #fff;
+    font-size: 500px;
+    transition: var(--transition-time);
+  }
 
 p {
     background-color: var(--bg-color);
     color: var(--text-color);
-    transition: all 1s;
+    transition: var(--transition-time)
 
 }
