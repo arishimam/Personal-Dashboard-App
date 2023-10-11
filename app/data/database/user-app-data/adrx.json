@@ -1,0 +1,39 @@
+{
+  "todos": [
+    {
+      "text": "New ToDo Item"
+    },
+    {
+      "text": "New ToDo Item"
+    },
+    {
+      "text": "New ToDo Item"
+    },
+    {
+      "text": "New ToDo Item"
+    },
+    {
+      "text": "New ToDo Item"
+    }
+  ],
+  "myFavoriteImageUrl": "https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg",
+  "goals": [
+    {
+      "text": "New Goal"
+    },
+    {
+      "text": "New Goal"
+    },
+    {
+      "text": "New Goal"
+    },
+    {
+      "text": "New Goal"
+    },
+    {
+      "text": "New Goal"
+    }
+  ],
+  "newTitle": "",
+  "id": "8TSSFKkleAuqic"
+}

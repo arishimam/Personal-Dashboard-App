@@ -1,50 +1,70 @@
-{{!-- Dashboard Theme --}}
-<p></p>
-<div object key:dashboard-theme="Classic">
-    <div>Dashboard Theme: <b watch:dashboard-theme=@innerText>Light Mode</b></div>
-    <div><label><input type="radio" value="Light Mode" update:dashboard-theme name="dashboard-theme" checked>Light Mode</label></div>
-    <div><label><input type="radio" value="Dark Mode" update:dashboard-theme name="dashboard-theme">Dark Mode</label></div>
-    <div><label><input type="radio" value="Theme 3" update:dashboard-theme name="dashboard-theme">Theme 3</label></div>
-    <div><label><input type="radio" value="Theme 3" update:dashboard-theme name="dashboard-theme">Theme 4</label></div>
-    <div><label><input type="radio" value="Theme 3" update:dashboard-theme name="dashboard-theme">Theme 5</label></div>
-</div>
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<link rel = "stylesheet" href = "/app/pages/styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-<h1>Welcome to your Personal Dashboard!</h1>
-<div>Personal Dashboard</div>
+<body>
 
-{{!-- New List Template --}}
-<button id="create-list-btn">Create New List</button>
 
-<div id="list-section"></div>
 
-{{!-- hidden by default --}}
-<div class="list-template" style="display:none;">
-    <div object>
-        <h2 key:text="@innerText" edit:text>New List</h2>
-        <ul array key="items">
-            {{#for item in items}}
-            <li object key:text="@innerText" edit:text>New Item</li>
+<header>
+  
+</header>
+
+<h1>Welcome to the app!</h1>
+
+<section>
+    <div class = container>
+        <div class = "toDo">
+            <h2>Todo Today :</h2>
+            <!-- USED https://docs.remaketheweb.com/a-simple-example-app/ for todo / goal listing -->
+            <!-- DOCUMENTATION / EXAMPLES USED: https://recipes.remaketheweb.com -->
+            <ul array key="todos" sortable>
+            {{#for item in todos}}
+            <li 
+                class = "appList"
+                object 
+                key:text="@innerText"
+                edit:text
+            >{{default item.text "New ToDo Item"}}</li>
             {{/for}}
-        </ul>
-        <button new:item>Add Item</button>
+            </ul>
+            <button new:item>Add Todo</button>
+        </div>
+
+        <div object key:my-favorite-image-url="@search" class = "ownImage">
+            <div>
+            <img target:my-favorite-image-url="@src" default:my-favorite-image-url="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Rainbow-diagram-ROYGBIV.svg/1200px-Rainbow-diagram-ROYGBIV.svg.png" src={{myFavoriteImageUrl}}>
+            </div>
+            <button edit:my-favorite-image-url:without-remove default:my-favorite-image-url="https://t4.ftcdn.net/jpg/02/66/31/75/360_F_266317554_kr7DPOoM5Uty0YCeFU9nDZTt4a2LeMJF.jpg">Edit image URL</button>
+        </div>
+
+        <div class = "goals">
+            <h2>Goals</h2>
+            <ul array key="goals" sortable>
+            {{#for goal in goals}}
+                <li 
+                class = "appList"              
+                object 
+                key:text="@innerText"
+                edit:text
+                >{{default goal.text "New Goal"}}</li>
+            {{/for}}
+            </ul>
+            <button new:goal>Add Goal</button>
+        </div>
+
+        <div class = "affirmation">
+            <h2>Daily Affirmation</h2>
+                <div object
+                key:new-title="@innerText"
+                edit:new-title:without-remove
+                default:new-title="Write your daily affirmation here. Click to edit..."
+                >{{newTitle}}</div>
+            <br><br>
+        </div>
     </div>
-</div>
+</section>
 
-
-
-<script>
-
-document.querySelector("#create-list-btn").addEventListener("click", function () {
-    // Get list template and list section
-    const template = document.querySelector(".list-template");
-    const listSection = document.querySelector("#list-section");
-
-    // Duplicate list template
-    const newList = template.cloneNode(true);
-
-    // since template is hidden by default, this line makes it visible
-    newList.style.display = "block";
-
-    listSection.appendChild(newList)
-});
-</script>

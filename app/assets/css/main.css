@@ -1,0 +1,160 @@
+* {
+    font-family: "Fira Sans", sans-serif;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+}
+
+/*Navbar css, navbar found in app/layouts/default.hbs*/
+.navbar {
+    padding: 3vh;
+    max-height: 3vh;
+}
+
+.navbar a { 
+    color: black;
+    font-weight: bold;
+    display: flex;
+    overflow: hidden;
+    font-size: 22px;
+    float: right;
+    margin-right: 15px;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    margin-top: -60px;
+}
+
+/*login and sign up css*/
+.loginContainer, .signUpContainer, .forgotPasswordContainer{
+    margin-top: 12vh;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.loginH1{
+    margin-bottom: 25px;
+}
+
+.usernameHeader, .emailHeader, .passwordHeader, .forgotPassword {
+    display: flex;
+    margin: 25px auto;
+}
+
+.username, .password, .email{
+    display: flex;
+    width: 100vw;
+    max-width: 550px;
+    height: 30px;
+    padding: 5px;
+}
+
+.forgotPassword{
+    font-weight: bold;
+    color: rgb(55, 141, 255);
+}
+
+.loginButton, .signUpButton, .resetPassword{
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 600;
+    margin: 0 10px;
+    width: 200px;
+    padding: 10px 0;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+    transition: 0.4s;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+
+.signUpButton, .resetPassword{
+    margin-top: 40px;
+}
+
+.loginButton:hover, .signUpButton:hover {
+    color: white;
+    width: 200px;
+    box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+    background-color: black;
+}
+  
+/*app-index css
+body {
+    background-color: white;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr 1fr;
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 1vw;
+} 
+
+.toDo {
+    resize: both;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.735);
+    overflow: auto;
+}
+
+.appList {
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+    overflow: auto;
+    width: 80%;
+    margin-bottom: 5px;
+    padding: 5px;
+    text-align: center;
+    list-style-type: none;
+}
+
+.toDo h2, .goals h2 {
+    position: relative;
+    margin-left: 1vw;
+}
+
+.toDo button, .goals button, .ownImage button{
+    position: relative;
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+    background-color: white;
+    border: 2px solid green;
+    border-radius: 5px;
+    color: black;
+}
+
+.ownImage img {
+    border-radius: 10px;
+    width: 33vw;
+    height: auto;
+}
+
+.goals {
+    resize: both;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 255, 0.644);
+}
+
+.affirmation {
+    resize: both;
+    color: #f5f5f5;
+    border-radius: 10px;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    text-align: center;
+    background-color: rgba(128, 0, 128, 0.703);
+}
+*/
