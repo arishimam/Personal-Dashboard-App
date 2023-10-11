@@ -1,11 +1,12 @@
 {{!-- Dashboard Theme --}}
 <link rel="stylesheet" type="text/css" href="/assets/css/_remake.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <p></p>
 
 <h1>Welcome to your Personal Dashboard!</h1>
 
-<button new:list>Create New List</button>
+<button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
 
 <div class="dashboard-container">
   <div class="dashboard" array key="lists" sortable="lists">
@@ -29,17 +30,16 @@
             <div 
               class="item" object key:item-text="@search" edit:item-text
             >
+            <input type="checkbox" class="mdc-checkbox__native-control"/>
               <p 
                 class="item__text"
-                style = "border: .5px solid gray; width: 150px;"
                 target:item-text="@innerText">{{default item.itemText "new list item"}}
                 </p>
-              <input type="checkbox">
             </div>
           {{/for}}
         </div>
         <div class="list__add-item-container">
-          <button class="list__add-item" new:item>add new item</button>
+          <button class="list__add-item" new:item><span class="material-icons">add</span></button>
         </div>
       </div>
     {{/for}}

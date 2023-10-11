@@ -1,3 +1,9 @@
+@use "@material/checkbox";
+@use "@material/form-field";
+
+@include checkbox.core-styles;
+@include form-field.core-styles;
+
 html[dashboard-theme="light mode"] {
     --bg-color: #FFFFFF;
     --text-color: black;
@@ -18,8 +24,8 @@ html[dashboard-theme="fun mode"] {
     --bg-color: hotpink;
     --text-color: #000000;
     --other-accent: white;
-    --accent-color: #3E885B;
-    --third-color: #613DC1;
+    --accent-color: #613DC1;
+    --third-color: #3E885B;
 }
 
 * {
@@ -81,4 +87,16 @@ p {
     color: var(--text-color);
     transition: var(--transition-time)
 
+}
+
+button {
+    background: transparent;
+    outline: none;
+    border: none;
+    transition: all 0.25s;
+    border-radius: 100px;
+}
+
+button:hover {
+    background: var(--third-color);
 }
