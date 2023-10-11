@@ -1,0 +1,27 @@
+html[dashboard-theme="light mode"] {
+    --bg-color: #FFFFFF;
+    --text-color: green;
+}
+
+html[dashboard-theme="dark mode"] {
+    --bg-color: #000000;
+    --text-color: white;
+}
+
+html[dashboard-theme="fun mode"] {
+    --bg-color: hotpink;
+}
+
+html,
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 1s;
+}
+
+p {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 1s;
+
+}

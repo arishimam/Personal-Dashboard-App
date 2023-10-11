@@ -21,13 +21,22 @@
   {{/if}}
 
   <p></p>
-  <div object key:dashboard-theme="Classic">
-    <div>Dashboard Theme: <b watch:dashboard-theme=@innerText>Light Mode</b></div>
-    <div><label><input type="radio" value="Light Mode" update:dashboard-theme name="dashboard-theme" checked>Light Mode</label></div>
-    <div><label><input type="radio" value="Dark Mode" update:dashboard-theme name="dashboard-theme">Dark Mode</label></div>
-    <div><label><input type="radio" value="Theme 3" update:dashboard-theme name="dashboard-theme">Theme 3</label></div>
-    <div><label><input type="radio" value="Theme 4" update:dashboard-theme name="dashboard-theme">Theme 4</label></div>
-    <div><label><input type="radio" value="Theme 5" update:dashboard-theme name="dashboard-theme">Theme 5</label></div>
+<div object key:dashboard-theme="@search">
+  <h2 target:dashboard-theme="@innerText">{{default dashboardTheme "classic"}}</h2>
+  <button update:dashboard-theme="light mode" id="light-mode">light mode</button>
+  <button update:dashboard-theme="dark mode">dark mode</button>
+  <button update:dashboard-theme="fun mode">fun mode</button>
+  <script>
+    const myButtons = document.querySelectorAll("div > button");
+    for(let i = 0; i < myButtons.length; i++) {
+      myButtons[i].addEventListener("click", function(){
+        const newTheme = this.innerText;
+        console.log(this.innerText);
+        document.querySelector("html").setAttribute("dashboard-theme", newTheme);
+      })
+    }
+
+  </script>
 </div>
   {{!-- Show errors --}}
   {{#if flashErrors }}
