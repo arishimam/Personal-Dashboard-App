@@ -9,9 +9,10 @@
 </head>
 <body>
   {{#if currentUser}}
-    <a class="nav__button" href="/app-index">Home</a>
+    <div>{{currentUser.details.username}}</div>
+    <a class="nav__button" href="/{{currentUser.details.username}}">Home</a>
     <a class="nav__button" href="/about">About Us</a>
-    <a class="nav__button" href="/index">Logout</a>
+    <a class="nav__button" href="/user/logout">Logout</a>
   {{else}}
     <a class="nav__button" href="/index">Home</a>
     <a class="nav__button" href="/about">About Us</a>
