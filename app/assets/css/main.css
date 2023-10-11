@@ -1,9 +1,3 @@
-@use "@material/checkbox";
-@use "@material/form-field";
-
-@include checkbox.core-styles;
-@include form-field.core-styles;
-
 html[dashboard-theme="light mode"] {
     --bg-color: #FFFFFF;
     --text-color: black;
