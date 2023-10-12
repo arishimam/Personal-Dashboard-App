@@ -1,70 +1,86 @@
-<!DOCTYPE html>
-<html lang = "en">
-<head>
-<link rel = "stylesheet" href = "/app/pages/styles.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+{{!-- Dashboard Theme --}}
+<link rel="stylesheet" type="text/css" href="/assets/css/_remake.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<p></p>
+<h1>Welcome to your Personal Dashboard!</h1>
 
-<body>
+<button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
 
-
-
-<header>
+<div object key:dashboard-theme="@search">
+    <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "light mode"}}</h2>
   
-</header>
+    <button class = "theme-button" update:dashboard-theme="light mode" id="light-mode">light mode</button>
+    <button  class = "theme-button" update:dashboard-theme="dark mode">dark mode</button>
+    <button  class = "theme-button" update:dashboard-theme="fun mode">fun mode</button>
+ 
+    <script>
+      const startingTheme = document.querySelector("#current-theme");
+      document.querySelector("html").setAttribute("dashboard-theme", startingTheme.innerText);
+      const myButtons = document.querySelectorAll("div > button");
+      for(let i = 0; i < myButtons.length; i++) {
+        myButtons[i].addEventListener("click", function(){
+          const newTheme = this.innerText;
+          console.log(this.innerText);
+          document.querySelector("html").setAttribute("dashboard-theme", newTheme);
+        })
+      }
 
-<h1>Welcome to the app!</h1>
+    </script>
+  </div>
 
-<section>
-    <div class = container>
-        <div class = "toDo">
-            <h2>Todo Today :</h2>
-            <!-- USED https://docs.remaketheweb.com/a-simple-example-app/ for todo / goal listing -->
-            <!-- DOCUMENTATION / EXAMPLES USED: https://recipes.remaketheweb.com -->
-            <ul array key="todos" sortable>
-            {{#for item in todos}}
-            <li 
-                class = "appList"
-                object 
-                key:text="@innerText"
-                edit:text
-            >{{default item.text "New ToDo Item"}}</li>
-            {{/for}}
-            </ul>
-            <button new:item>Add Todo</button>
+<div class="dashboard-container">
+  <div class="dashboard" array key="lists" sortable="lists">
+    {{#for list in lists}}
+      <div 
+        class="list" object key:list-heading="@search" default:list-heading="List"
+      >
+        <div class="list__top">
+          <h3 
+            class="list__text"
+            target:list-heading="@innerText" edit:list-heading>{{default list.listHeading "New List"}}
+            </h3>
         </div>
-
-        <div object key:my-favorite-image-url="@search" class = "ownImage">
-            <div>
-            <img target:my-favorite-image-url="@src" default:my-favorite-image-url="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Rainbow-diagram-ROYGBIV.svg/1200px-Rainbow-diagram-ROYGBIV.svg.png" src={{myFavoriteImageUrl}}>
+        <div 
+          class="list__items"
+          key="items"
+          array
+          sortable="items"
+        >
+          {{#for item in list.items}}
+            <div 
+              class="item" object key:item-text="@search" edit:item-text
+            >
+              <input type="checkbox" disable-events onchange="thisTHING(event)">
+              <p 
+                class="item__text"
+                target:item-text="@innerText">{{default item.itemText "new list item"}}
+                </p>
+              
+                
             </div>
-            <button edit:my-favorite-image-url:without-remove default:my-favorite-image-url="https://t4.ftcdn.net/jpg/02/66/31/75/360_F_266317554_kr7DPOoM5Uty0YCeFU9nDZTt4a2LeMJF.jpg">Edit image URL</button>
+          {{/for}}
         </div>
+        <div class="list__add-item-container">
+          <button class="list__add-item" new:item><span class="material-icons">add</span></button>
+        </div>
+      </div>
+    {{/for}}
+  </div>
+  <script>
+    function thisTHING(event) {
+      const myText = event.target.nextElementSibling;
+      if(event.target.checked) {
+        myText.style.backgroundSize = "100% 100%";
+      }
+      else {
+        myText.style.backgroundSize = "0% 100%";
+      }
+      
+      
+    }
+  </script>
 
-        <div class = "goals">
-            <h2>Goals</h2>
-            <ul array key="goals" sortable>
-            {{#for goal in goals}}
-                <li 
-                class = "appList"              
-                object 
-                key:text="@innerText"
-                edit:text
-                >{{default goal.text "New Goal"}}</li>
-            {{/for}}
-            </ul>
-            <button new:goal>Add Goal</button>
-        </div>
-
-        <div class = "affirmation">
-            <h2>Daily Affirmation</h2>
-                <div object
-                key:new-title="@innerText"
-                edit:new-title:without-remove
-                default:new-title="Write your daily affirmation here. Click to edit..."
-                >{{newTitle}}</div>
-            <br><br>
-        </div>
-    </div>
-</section>
+  
+</div>
 

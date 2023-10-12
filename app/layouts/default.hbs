@@ -15,6 +15,7 @@
         <a href="/user/logout">Logout</a>
         &nbsp;
         <a href = "/about us/">About Us</a>
+        <a class="nav__button" href="/{{currentUser.details.username}}/planner">Planner</a>
     </div>
   {{else}}
     <div class = "navbar">
@@ -25,6 +26,30 @@
       &nbsp;
       <a href = "/about us/">About Us</a>
     </div>
+
+ 
+  <div object key:dashboard-theme="@search">
+    <div target:dashboard-theme="@innerText" id="current-theme" >{{default dashboardTheme "Classic"}}</div>
+    <!--
+    <button class = "theme-button" update:dashboard-theme="Classic" id="Classic">classic</button>
+    <button  class = "theme-button" update:dashboard-theme="dark mode">dark mode</button>
+    <button  class = "theme-button" update:dashboard-theme="fun mode">fun mode</button>
+    -->
+    <script>
+      const startingTheme = document.querySelector("#current-theme");
+      document.querySelector("html").setAttribute("dashboard-theme", startingTheme.innerText);
+      const myButtons = document.querySelectorAll("div > button");
+      for(let i = 0; i < myButtons.length; i++) {
+        myButtons[i].addEventListener("click", function(){
+          const newTheme = this.innerText;
+          console.log(this.innerText);
+          document.querySelector("html").setAttribute("dashboard-theme", newTheme);
+        })
+      }
+
+    </script>
+  </div>
+  
   {{/if}}
   {{!-- Show errors --}}
   {{#if flashErrors }}
@@ -47,5 +72,5 @@
     <script src="/assets/js/remake-init.js"></script>
   {{/if}}
   <script src="/assets/js/main.js"></script>
-</body>
+</body>  
 </html>

@@ -1,37 +1,111 @@
 {
+  "dashboardTheme": "fun mode",
+  "lists": [
+    {
+      "listHeading": "New List",
+      "items": [
+        {
+          "itemText": "new list item"
+        }
+      ]
+    }
+  ],
+  "monday": {
+    "items": [
+      {
+        "itemText": "new list item"
+      },
+      {
+        "itemText": "new list item"
+      },
+      {
+        "itemText": "new list item"
+      }
+    ],
+    "id": "K5DYKLN915qGDG"
+  },
+  "tuesday": {
+    "items": [
+      {
+        "itemText": "new list item"
+      },
+      {
+        "itemText": "new list item"
+      }
+    ],
+    "id": "fAPXh3GkVlRaOj"
+  },
+  "wednesday": {
+    "items": [
+      {
+        "itemText": "new list item"
+      },
+      {
+        "itemText": "new list item"
+      }
+    ],
+    "id": "WHHKkkZk0fjo4J"
+  },
+  "thursday": {
+    "items": [],
+    "id": "wENKJ0crpLasPK"
+  },
+  "friday": {
+    "items": [],
+    "id": "wzBff6vdTKWlne"
+  },
+  "saturday": {
+    "items": [],
+    "id": "ef1p2dorJfMPtJ"
+  },
+  "sunday": {
+    "items": [],
+    "id": "rSrbINSPqVj7OU"
+  },
+  "items": [],
   "todos": [
     {
-      "text": "New ToDo Item"
+      "text": "New ToDo Item",
+      "id": "Dpz4A7pzcOB55S"
     },
     {
-      "text": "New ToDo Item"
+      "text": "New ToDo Item",
+      "id": "y33tT1FrNZp9Eq"
     },
     {
-      "text": "New ToDo Item"
+      "text": "New ToDo Item",
+      "id": "u7KLQf7my53mVR"
     },
     {
-      "text": "New ToDo Item"
+      "text": "New ToDo Item",
+      "id": "723nuqc0ByJrdr"
     },
     {
-      "text": "New ToDo Item"
+      "text": "New ToDo Item",
+      "id": "XtLBbzi6TFPAOD"
     }
   ],
   "myFavoriteImageUrl": "https://images.pexels.com/photos/842711/pexels-photo-842711.jpeg",
   "goals": [
     {
-      "text": "New Goal"
+      "text": "New Goal",
+      "id": "anQmypEXHwNF36"
     },
     {
-      "text": "New Goal"
+      "text": "New Goal",
+      "id": "8Wn6mtFpjRamSy"
     },
     {
-      "text": "New Goal"
+      "text": "New Goal",
+      "id": "2lmE53dBs6rO8I"
     },
     {
-      "text": "New Goal"
+      "text": "New Goal",
+      "id": "1HILfmw6lIMeAr"
     },
     {
-      "text": "New Goal"
+      "text": "New Goal",
+      "id": "N8CXmpHgzMx8An"
     }
   ],
   "newTitle": "",
