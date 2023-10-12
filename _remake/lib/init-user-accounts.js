@@ -150,7 +150,7 @@ function initUserAccounts({ app }) {
 
   app.get(/(\/app_[a-z]+[a-z0-9-]*)?\/user\/logout/, function (req, res) {
     req.session.destroy(err => {
-      req.logout();
+      // req.logout();
       res.redirect("/user/login");
     });
   });

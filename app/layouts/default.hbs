@@ -9,10 +9,11 @@
 </head>
 <body>
   {{#if currentUser}}
-    <a class="nav__button" href="/app-index">Home</a>
-    
-    <a class="nav__button" href="/about">About Us</a>
-    <a href="/user/logout">Logout</a>
+    <div>{{currentUser.details.username}}</div>
+    <a class="nav__button" href="/{{currentUser.details.username}}">Home</a>
+    <a class="nav__button" href="/{{currentUser.details.username}}/about">About Us</a>
+    <a class="nav__button" href="/{{currentUser.details.username}}/planner">Planner</a>
+    <a class="nav__button" href="/user/logout">Logout</a>
   {{else}}
     <a class="nav__button" href="/index">Home</a>
     <a class="nav__button" href="/about">About Us</a>
@@ -20,6 +21,27 @@
     &nbsp;
     <a class="nav__button" href="/user/login">Log in</a>
   {{/if}}
+
+  <p></p>
+<div object key:dashboard-theme="@search">
+  <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "light mode"}}</h2>
+  <button update:dashboard-theme="light mode" id="light-mode">light mode</button>
+  <button update:dashboard-theme="dark mode">dark mode</button>
+  <button update:dashboard-theme="fun mode">fun mode</button>
+  <script>
+    const startingTheme = document.querySelector("#current-theme");
+    document.querySelector("html").setAttribute("dashboard-theme", startingTheme.innerText);
+    const myButtons = document.querySelectorAll("div > button");
+    for(let i = 0; i < myButtons.length; i++) {
+      myButtons[i].addEventListener("click", function(){
+        const newTheme = this.innerText;
+        console.log(this.innerText);
+        document.querySelector("html").setAttribute("dashboard-theme", newTheme);
+      })
+    }
+
+  </script>
+</div>
   {{!-- Show errors --}}
   {{#if flashErrors }}
     {{#each flashErrors }}

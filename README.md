@@ -1,6 +1,6 @@
 # Create an app! 🪂
 
-Create your first Remake app:
+Create your first Remake app
 
 ```sh
 npm install -g remake

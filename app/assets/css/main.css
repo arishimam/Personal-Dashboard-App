@@ -1,0 +1,39 @@
+html[dashboard-theme="light mode"] {
+    --bg-color: #FFFFFF;
+    --text-color: black;
+}
+
+html[dashboard-theme="dark mode"] {
+    --bg-color: #000000;
+    --text-color: white;
+}
+
+html[dashboard-theme="fun mode"] {
+    --bg-color: hotpink;
+    --text-color: #000000;
+}
+
+* {
+}
+
+html,
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: var(--transition-time);
+}
+
+
+body[key\:dashboard-theme="dark mode"] {
+    background: #222;
+    color: #fff;
+    font-size: 500px;
+    transition: var(--transition-time);
+  }
+
+p {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: var(--transition-time)
+
+}

@@ -1,50 +1,46 @@
 {{!-- Dashboard Theme --}}
+<link rel="stylesheet" type="text/css" href="/assets/css/_remake.css">
 <p></p>
-<div object key:dashboard-theme="Classic">
-    <div>Dashboard Theme: <b watch:dashboard-theme=@innerText>Light Mode</b></div>
-    <div><label><input type="radio" value="Light Mode" update:dashboard-theme name="dashboard-theme" checked>Light Mode</label></div>
-    <div><label><input type="radio" value="Dark Mode" update:dashboard-theme name="dashboard-theme">Dark Mode</label></div>
-    <div><label><input type="radio" value="Theme 3" update:dashboard-theme name="dashboard-theme">Theme 3</label></div>
-    <div><label><input type="radio" value="Theme 3" update:dashboard-theme name="dashboard-theme">Theme 4</label></div>
-    <div><label><input type="radio" value="Theme 3" update:dashboard-theme name="dashboard-theme">Theme 5</label></div>
-</div>
 
 <h1>Welcome to your Personal Dashboard!</h1>
-<div>Personal Dashboard</div>
 
-{{!-- New List Template --}}
-<button id="create-list-btn">Create New List</button>
+<button new:list>Create New List</button>
 
-<div id="list-section"></div>
-
-{{!-- hidden by default --}}
-<div class="list-template" style="display:none;">
-    <div object>
-        <h2 key:text="@innerText" edit:text>New List</h2>
-        <ul array key="items">
-            {{#for item in items}}
-            <li object key:text="@innerText" edit:text>New Item</li>
-            {{/for}}
-        </ul>
-        <button new:item>Add Item</button>
-    </div>
+<div class="dashboard-container">
+  <div class="dashboard" array key="lists" sortable="lists">
+    {{#for list in lists}}
+      <div 
+        class="list" object key:list-heading="@search" default:list-heading="List"
+        style = "border: 1px solid gray; width:200px;"
+      >
+        <div class="list__top">
+          <p 
+            class="list__text"
+            target:list-heading="@innerText" edit:list-heading>{{default list.listHeading "New List"}}
+            </p>
+        </div>
+        <div 
+          class="list__items"
+          key="items"
+          array
+          sortable="items"
+        >
+          {{#for item in list.items}}
+            <div 
+              class="item" object key:item-text="@search" edit:item-text
+            >
+              <p 
+                class="item__text"
+                style = "border: .5px solid gray; width: 150px;"
+                target:item-text="@innerText">{{default item.itemText "new list item"}}
+                </p>
+            </div>
+          {{/for}}
+        </div>
+        <div class="list__add-item-container">
+          <button class="list__add-item" new:item>add new item</button>
+        </div>
+      </div>
+    {{/for}}
+  </div>
 </div>
-
-
-
-<script>
-
-document.querySelector("#create-list-btn").addEventListener("click", function () {
-    // Get list template and list section
-    const template = document.querySelector(".list-template");
-    const listSection = document.querySelector("#list-section");
-
-    // Duplicate list template
-    const newList = template.cloneNode(true);
-
-    // since template is hidden by default, this line makes it visible
-    newList.style.display = "block";
-
-    listSection.appendChild(newList)
-});
-</script>

@@ -1,0 +1,117 @@
+<h2 id="month"></h2>
+<p>Today is, <b id="today"></b></p>
+
+
+<div class="week-container">
+    <div class="day">
+        <div class="day-header">Monday<b class="date"></b></div>
+        <div class="list" object key="monday">
+            <div class="list__items" array key="items" sortable="items">
+                {{#for item in monday.items}}
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <p class="item__text" target:item-text="@innerText">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Tuesday<b class="date"></b></div>
+        <div class="list" object key="tuesday">
+            <div class="list__items" array key="items" sortable="items">
+                {{#for item in tuesday.items}}
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <p class="item__text" target:item-text="@innerText">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Wednesday<b class="date"></b></div>
+        <div class="list" object key="wednesday">
+            <div class="list__items" array key="items" sortable="items">
+                {{#for item in wednesday.items}}
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <p class="item__text" target:item-text="@innerText">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Thursday <b class="date"></b></div>
+        <div class="list" object key="thursday">
+            <div class="list__items" array key="items" sortable="items">
+                {{#for item in thursday.items}}
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <p class="item__text" target:item-text="@innerText">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Friday<b class="date"></b></div>
+        <div class="list" object key="friday">
+            <div class="list__items" array key="items" sortable="items">
+                {{#for item in friday.items}}
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <p class="item__text" target:item-text="@innerText">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Saturday<b class="date"></b></div>
+        <div class="list" object key="saturday">
+            <div class="list__items" array key="items" sortable="items">
+                {{#for item in saturday.items}}
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <p class="item__text" target:item-text="@innerText">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Sunday<b class="date"></b></div>
+        <div class="list" object key="sunday">
+            <div class="list__items" array key="items" sortable="items">
+                {{#for item in sunday.items}}
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <p class="item__text" target:item-text="@innerText">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const m = new Date();
+
+    let day = days[m.getDay()];
+    let year = m.getFullYear();
+    let month = months[m.getMonth()].toString().concat(" ",year);
+
+    let monthday = m.getMonth()+1; 
+
+    document.getElementById("month").innerHTML = month;
+    document.getElementById("today").innerHTML = day;
+
+    const dateElements = document.getElementsByClassName("date");
+    for (let element of dateElements) {
+        element.innerHTML = monthday.toString().concat("-",m.getDate());
+    }
+</script>
