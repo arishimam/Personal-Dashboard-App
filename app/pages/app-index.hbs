@@ -29,11 +29,13 @@
             <div 
               class="item" object key:item-text="@search" edit:item-text
             >
-            <input type="checkbox" disable-events onchange="thisTHING()"></button>
+              <input type="checkbox" disable-events onchange="thisTHING(event)">
               <p 
                 class="item__text"
                 target:item-text="@innerText">{{default item.itemText "new list item"}}
                 </p>
+              
+                
             </div>
           {{/for}}
         </div>
@@ -44,7 +46,16 @@
     {{/for}}
   </div>
   <script>
-    function thisTHING() {
+    function thisTHING(event) {
+      const myText = event.target.nextElementSibling;
+      if(event.target.checked) {
+        myText.style.backgroundSize = "100% 100%";
+      }
+      else {
+        myText.style.backgroundSize = "0% 100%";
+      }
+      
+      
     }
   </script>
 </div>
