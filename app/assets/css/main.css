@@ -3,7 +3,7 @@ html[dashboard-theme="light mode"] {
     --text-color: black;
     --accent-color: black;
     --other-accent: #2A7F62;
-    --third-color: #DB162F;
+    --third-color: #c93e51ae;
     --border-color: black;
 }
 
@@ -55,11 +55,12 @@ h1{
 button {
     background-color: var(--bg-color);
     border: none;
-    padding: 10px;
-    margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
-
+    text-align: center;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 18px;
 }
 
 button:hover {
@@ -208,4 +209,16 @@ p {
 
 .dashboard-container {
     margin-top: 15px;
+}
+
+.themes{
+    display: flex;
+    justify-content: center;
+}
+
+.themes h2{
+    display: inline;
+    background-color: var(--third-color);
+    padding: 6px;
+    border-radius: 5px;
 }
