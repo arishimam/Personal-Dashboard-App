@@ -62,10 +62,10 @@ button:hover {
     background-color:var(--bg-color);
     border: 1px solid var(--border-color);
     border-radius: 5px;
-    flex-grow: 1; /* allows flex items to grow and fill the container */
-    margin: 0 10px; /* reduced margin for better spacing */
+    flex-grow: 1; 
+    margin: 0 10px; 
     padding: 10px;
-    min-height: 70vh; /* minimum height is 50% of the viewport height */
+    min-height: 70vh; 
     box-sizing: border-box;
 }
 
@@ -129,15 +129,15 @@ p {
 .navbar a {
     color: var(--text-color);
     font-weight: bold;
-    text-decoration: none; /* Removes the typical underline of hyperlinks */
+    text-decoration: none; 
     font-size: 22px;
-    margin-left: 20px; /* Space between links, applied to the left to space items from the right */
+    margin-left: 20px; 
 }
 
 .logo {
-    width: 200px; /* Reduced size based on typical navbar */
-    height: 200px; /* Keeps it a square */
-    margin-right: auto;  /* Pushes the rest of the items to the right */
+    width: 200px; 
+    height: 200px; 
+    margin-right: auto;  
 }
 
 /*login and sign up css*/

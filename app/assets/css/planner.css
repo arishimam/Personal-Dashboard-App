@@ -1,34 +1,33 @@
 .starter {
     display: flex;
-    flex-direction: column; /* stacks children elements (month and today) on top of each other */
-    align-items: center; /* centers children elements */
+    flex-direction: column; 
+    align-items: center; 
     justify-content: center;
     margin-top: 60px;
     font-size: xx-large;
     font-weight: bolder;
-    width: 100%; /* makes sure the div takes full width of its parent, which helps in centering */
+    width: 100%; 
 }
 
 .date-info {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Aligns the text to the center */
+    align-items: center; 
 }
 
 #month, #today {
-    margin: 0; /* Removes any default margin */
-    padding: 0.25rem; /* Adds a bit of space around the text */
+    margin: 0; 
     font-size: xx-large;
     font-weight: bolder;
-    text-align: center; /* Ensures the text is centered within its container */
+    text-align: center; 
 }
 
 .week-container {
     display: flex;
     margin-top: 60px;
     margin-bottom: 60px;
-    justify-content: space-between; /* distributes the space between the flex items */
-    flex-wrap: wrap; /* allows the flex items to wrap onto the next line */
+    justify-content: space-between; 
+    flex-wrap: wrap; 
 }
 
 .day {
@@ -36,8 +35,8 @@
     border: 1px black;
     border-style: solid;
     border-radius: 5px;
-    flex-grow: 1; /* allows flex items to grow and fill the container */
-    margin: 0 10px; /* reduced margin for better spacing */
+    flex-grow: 1; 
+    margin: 0 10px; 
     padding: 10px;
     min-height: 70vh;
     box-sizing: border-box;
@@ -47,7 +46,7 @@
     font-weight: bold;
     margin-bottom: 10px;
     padding: 10px;
-    font-size: 18px; /* fixed font size, change as needed */
+    font-size: 18px; 
 }
 /* Specific styles for each day-header with soft background colors */
 .day:nth-child(1) .day-header { 
@@ -92,13 +91,13 @@ button {
 
 @media (max-width: 1000px) {
     .day {
-        margin-bottom: 20px; /* additional bottom margin for wrapped items */
+        margin-bottom: 50px; /* additional bottom margin for wrapped items */
     }
 }
 
 @media (max-width: 600px) {
     .day {
-        flex-basis: 100%; /* makes flex items full width */
+        flex-basis: 100%; 
         margin: 10px 0; /* adjusts margin for smaller screens */
     }
 }
