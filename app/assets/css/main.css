@@ -1,11 +1,10 @@
-html[dashboard-theme="Classic"] {
+html[dashboard-theme="light mode"] {
     --bg-color: #FFFFFF;
     --text-color: black;
     --accent-color: #48BBFF;
     --other-accent: #2A7F62;
     --third-color: #DB162F;
 }
-
 
 html[dashboard-theme="dark mode"] {
     --bg-color: #000000;
@@ -15,13 +14,9 @@ html[dashboard-theme="dark mode"] {
     --third-color: #4E6766;
 }
 
-html[dashboard-theme="dark mode"] .theme-button{
-    color: white;
-}
-
 html[dashboard-theme="fun mode"] {
     --bg-color: hotpink;
-    --text-color: black;
+    --text-color: #000000;
     --other-accent: white;
     --accent-color: #613DC1;
     --third-color: #3E885B;
@@ -186,4 +181,3 @@ a, a:hover, a:focus, a:active {
     box-shadow: 0 0 20px var(--third-color);
     background-color: var(--text-color);
 }
-
