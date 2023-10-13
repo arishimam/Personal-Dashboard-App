@@ -13,6 +13,7 @@ html[dashboard-theme="dark mode"] {
     --accent-color: #C73E1D;
     --other-accent: #A44200;
     --third-color: #4E6766;
+    --border-color: white;
 }
 
 html[dashboard-theme="dark mode"] button {
@@ -29,6 +30,7 @@ html[dashboard-theme="fun mode"] {
     --other-accent: white;
     --accent-color: #613DC1;
     --third-color: #3E885B;
+    --border-color: black;
 }
 
 * {
