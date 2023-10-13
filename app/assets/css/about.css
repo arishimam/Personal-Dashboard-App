@@ -1,0 +1,56 @@
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333; 
+    background-color: #fff; 
+    line-height: 1.6;
+}
+
+.about-page {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #000; 
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    border-bottom: 2px solid #333; 
+    padding-bottom: 10px;
+}
+
+.about-app p {
+    text-align: justify;
+}
+
+.about-team {
+    margin-top: 40px;
+}
+
+.about-team div {
+    margin-bottom: 30px;
+}
+
+.about-team img {
+    border-radius: 50%; 
+    width: 150px; 
+    height: 150px;
+    object-fit: cover; 
+    border: 3px solid #000; 
+}
+
+.about-team p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .about-team img {
+        width: 100px;
+        height: 100px;
+    }
+}
