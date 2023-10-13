@@ -297,3 +297,8 @@ p {
 .landing-text-stuff {
     padding-bottom: 60px;
 }
+
+.landingButton{
+    display: flex;
+    justify-content: center;
+}
