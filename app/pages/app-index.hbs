@@ -6,11 +6,11 @@
 <p></p>
 <h1>Hi {{currentUser.details.username}}, welcome to your Personal Dashboard!</h1>
 
-    <div object key:dashboard-theme="@search" class="themes">
-      <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "light mode"}}</h2>
-      <button update:dashboard-theme="light mode" id="light-mode">light mode</button>
-      <button update:dashboard-theme="dark mode">dark mode</button>
-      <button update:dashboard-theme="fun mode">fun mode</button>
+    <div object key:dashboard-theme="@search">
+    <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "light mode"}}</h2>
+    <button update:dashboard-theme="light mode" id="light-mode">light mode</button>
+    <button update:dashboard-theme="dark mode">dark mode</button>
+    <button update:dashboard-theme="fun mode">fun mode</button>
     <script>
       const startingTheme = document.querySelector("#current-theme");
       document.querySelector("html").setAttribute("dashboard-theme", startingTheme.innerText);
@@ -22,14 +22,10 @@
           document.querySelector("html").setAttribute("dashboard-theme", newTheme);
         })
       }
-
     </script>
   </div>
 
-<div class="dashboard-container">
-
-  <div class="timer-container">
-
+        <div class="timer-container">
       <div>Get some sh*t done. Set a timer!</div>
 
       <div class="display-time">
@@ -65,44 +61,46 @@
       </div>
 
     </div>
-    </div>
-
-    <button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
-    <div class="dashboard" array key="def-lists" sortable="def-lists">
-      
-      {{#for list in lists}}
-        <div 
-          class="list" object key:list-heading="@search" default:list-heading="List"
-        >
-          <div class="list__top">
-            <h3 
-              class="list__text"
-              target:list-heading="@innerText" edit:list-heading>{{default list.listHeading "New List"}}
-              </h3>
-          </div>
-          <div class="list__add-item-container">
-            <button class="list__add-item" new:item><span class="material-icons">add</span></button>
-          </div>
-          <div 
-            class="list__items"
-            key="items"
-            array
-            sortable="items"
-          >
-            {{#for item in list.items}}
-              <div 
-                class="item" object key:item-text="@search" edit:item-text
-              >
-                <input type="checkbox" disable-events onchange="thisTHING(event)">
-                <p 
-                  class="item__text"
-                  target:item-text="@innerText">{{default item.itemText "new list item"}}
-                  </p>
-              </div>
-            {{/for}}
-          </div>
+  <button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
+  <div class="dashboard" array key="lists" sortable="lists">
+    {{#for list in lists}}
+      <div 
+        class="list" object key:list-heading="@search" default:list-heading="List"
+      >
+        <div class="list__top">
+          <h3 
+            class="list__text"
+            target:list-heading="@innerText" edit:list-heading>{{default list.listHeading "New List"}}
+            </h3>
         </div>
-      {{/for}}
+        <div 
+          class="list__items"
+          key="items"
+          array
+          sortable="items"
+        >
+          {{#for item in list.items}}
+            <div 
+              class="item" object key:item-text="@search" edit:item-text
+            >
+              <input type="checkbox" disable-events onchange="thisTHING(event)">
+              <p 
+                class="item__text"
+                target:item-text="@innerText">{{default item.itemText "new list item"}}
+                </p>
+              
+                
+            </div>
+          {{/for}}
+        </div>
+        <div class="list__add-item-container">
+          <button class="list__add-item" new:item><span class="material-icons">add</span></button>
+        </div>
+      </div>
+    {{/for}}
+  </div>
+    
+
     </div>
   </div>
   <script>
