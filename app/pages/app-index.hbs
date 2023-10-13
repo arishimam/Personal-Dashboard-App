@@ -3,7 +3,7 @@
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <p></p>
-<h1>Welcome to your Personal Dashboard!</h1>
+<h1>Hi {{currentUser.details.username}}, welcome to your Personal Dashboard!</h1>
 
 <button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
      <div object key:dashboard-theme="@search">
@@ -67,7 +67,7 @@
     <div class="timer-container">
       <div class="display-time">
         <span id="display-hours">00</span>:
-        <span id="display-minutes>">00</span>:
+        <span id="display-minutes">00</span>:
         <span id="display-seconds">00</span>
       </div>
       <div class="time-unit hours">
@@ -88,9 +88,9 @@
         <span id="seconds">00</span>
         <button onclick="adjustTime('seconds', -1)">-</button>
       </div>
-      <button>Start</button>
-      <button>Pause</button>
-      <button>Reset</button>
+      <button onclick="startTimer()" class="timer-buttons">Start</button>
+      <button onclick="pauseResume()" class="timer-buttons" id="pause-btn">Pause</button>
+      <button onclick="resetTimer()" class="timer-buttons">Reset</button>
     </div>
   </div>
   <script>
@@ -98,6 +98,8 @@
     // Timer Stuff
     let timerInterval;
     let timeLeft;
+    let isPaused = false;
+    let timerStarted = false;
 
     function adjustTime(unit, value) {
       let element = document.getElementById(unit);
@@ -112,30 +114,91 @@
     }
 
     function startTimer() {
-      pauseTimer();
+      if (timerStarted) return; // If the timer is already started, don't start it again.
+
       let hours = parseInt(document.getElementById("hours").innerText);
       let minutes = parseInt(document.getElementById("minutes").innerText);
       let seconds = parseInt(document.getElementById("seconds").innerText);
       timeLeft = hours * 60 * 60 + minutes * 60 + seconds;
 
-      //Call Update display time function here
+      if (timeLeft <= 0) return;  // Prevent the timer from starting if the time is set to 0.
 
-      
+      timerStarted = true;
+      isPaused = false;
+      document.getElementById("pause-btn").innerText = "Pause";
 
+      displayTime();
+
+      timerInterval = setInterval(() => {
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert("Time's up!");
+          } else {
+            timeLeft -= 1;
+            displayTime();
+          }
+      }, 1000);
     }
 
-    function pauseTimer() {
-      console.log(`before clearInterval() ${timerInterval}`);
-      clearInterval(timerInterval);
-      console.log(`after clearInterval() ${timerInterval}`);
+
+
+    function displayTime() {
+      let currHour = Math.floor(timeLeft/3600);
+      let currMin = Math.floor((timeLeft - currHour * 3600) / 60);
+      let currSec = timeLeft % 60;
+
+      document.getElementById("display-hours").innerText = currHour.toString().padStart(2,"0");
+      
+      document.getElementById("display-minutes").innerText = currMin.toString().padStart(2,"0");
+      
+      document.getElementById("display-seconds").innerText = currSec.toString().padStart(2,"0");
+    }
+    
+      function pauseResume() {
+        if (!timerStarted) {
+            startTimer();
+            return;
+        }
+
+        if (isPaused) {
+            resumeTimer();
+        } else {
+            pauseTimer();
+        }
+      }
+
+
+      function pauseTimer() {
+          clearInterval(timerInterval);
+          document.getElementById("pause-btn").innerText = "Resume";
+          isPaused = true;
+      }
+
+
+    function resumeTimer() {
+      timerInterval = setInterval(() => {
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          alert("Time's up!");
+        } else {
+          timeLeft -= 1;
+          displayTime();
+        }
+      }, 1000);
+      document.getElementById("pause-btn").innerText = "Pause";
+      isPaused = false;
     }
 
     function resetTimer() {
       pauseTimer();
+      timerStarted = false;
       document.getElementById("hours").innerText="00";
       document.getElementById("minutes").innerText="00";
       document.getElementById("seconds").innerText="00";
+      displayTime();
     }
+
+
     function thisTHING(event) {
       const myText = event.target.nextElementSibling;
       if(event.target.checked) {
@@ -144,8 +207,6 @@
       else {
         myText.style.backgroundSize = "0% 100%";
       }
-      
-      
     }
   </script>
 </div>
