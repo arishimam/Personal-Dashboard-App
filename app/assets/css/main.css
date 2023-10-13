@@ -298,7 +298,23 @@ p {
     padding-bottom: 60px;
 }
 
+<<<<<<< HEAD
 .landingButton{
     display: flex;
     justify-content: center;
 }
+=======
+.landingButton {
+    background-color: rgba(0,0,0,0.785);
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: small;
+}
+
+.landingButton:hover {
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+>>>>>>> c9d482deebefb578c5846c1ecdb2432b1b2ac01c
