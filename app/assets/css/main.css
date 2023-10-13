@@ -180,10 +180,78 @@ a, a:hover, a:focus, a:active {
     margin-top: 40px;
 }
 
-.loginButton:hover, .signUpButton:hover {
+.loginButton:hover, .signUpButton:hover{
     color: var(--bg-color);
     width: 200px;
     box-shadow: 0 0 20px var(--third-color);
     background-color: var(--text-color);
 }
+
+/*Landing Page CSS*/
+.cta {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10vh;
+}
+
+.landingButton{
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 600;
+    padding: 10px;
+    box-shadow: 0 0 20px var(--other-accent);
+    transition: 0.4s;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+}
+
+.landingButton, .landingHeader{
+    margin: 0 auto;
+    width: fit-content;
+    text-align: center;
+}
+
+.landingHeader {
+   font-size: 2.75em; 
+}
+
+.landingButton {
+    font-size: 1.75em;
+}
+
+.landingButton:hover {
+    color: var(--bg-color);
+    width: fit-content;  
+    box-shadow: 0 0 20px var(--third-color);
+    background-color: var(--text-color);
+}
+
+.landingContainer {
+    display: grid;
+    grid-template-columns: .33fr .33fr .33fr;
+    grid-auto-rows: minmax(150px, auto);
+    column-gap: 15%;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    align-items: center;
+}
+
+.landingImage, .landingText {
+    position: relative;
+    font-weight: bold;
+    margin-left: 1vw;
+    width: 20vw;
+    max-height: 25vh;
+}
+
+.landingText {
+    text-align: center;
+    font-size: 1.4em;
+}
+
+
+
 

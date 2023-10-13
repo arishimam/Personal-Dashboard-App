@@ -1,8 +1,18 @@
-<h1>Welcome to my app!</h1>
-<ul>
+<section class = "cta">
   {{#if currentUser}}
-    <li><a href="/{{currentUser.details.username}}">Go to your dashboard</a></li>
+    <h1 class = "landingHeader">Welcome back {{currentUser.details.username}}!</h1>
+    <a class = "landingButton" href="/{{currentUser.details.username}}">Go to your dashboard</a>
   {{else}}
-    <li><a href="/user/signup">Sign up for an account</a></li>
+    <h1 class = "landingHeader">Plan your life today!</h1>
+    <a class = "landingButton" href="/user/signup">Sign up for an account</a>
   {{/if}}
-</ul>
+</section>
+
+<section class = "landingContainer">
+    <img class = "landingImage" src = "https://www.shutterstock.com/image-vector/quality-control-icon-vector-260nw-1130813198.jpg">
+    <img class = "landingImage" src = "https://www.shutterstock.com/image-vector/quality-control-icon-vector-260nw-1130813198.jpg">
+    <img class = "landingImage" src = "https://www.shutterstock.com/image-vector/quality-control-icon-vector-260nw-1130813198.jpg">
+    <p class = "landingText">Organize your week with a weekly schedule!</p>
+    <p class = "landingText">Make any list of your choosing!</p>
+    <p class = "landingText">Keep track of your goals!</p>
+</section>

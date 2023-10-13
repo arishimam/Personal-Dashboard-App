@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,6 +9,8 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 </head>
 <body>
+
+
   {{#if currentUser}}
     <div class = "navbar">
         <img class = "logo" src = "../assets/images/plan-it.png">
@@ -16,7 +19,9 @@
         <a class="nav__button" href="/{{currentUser.details.username}}/planner">Planner</a>
         <a class="nav__button" href="/about">About Us</a>
         <a class="nav__button" href="/{{currentUser.details.username}}">Home</a>
+        <a class="nav__button" href = "/index">Landing Page</a>
     </div>
+    
   {{else}}
     <div class = "navbar">
       <img class = "logo" src = "../assets/images/plan-it.png">
@@ -27,10 +32,10 @@
       <a class="nav__button" href="/about">About Us</a>
       <a class="nav__button" href="/index">Home</a>
     </div>
-
+  {{/if}}
   <div object key:dashboard-theme="@search">
     <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "Classic"}}</h2>
-    <button class = "theme-button" update:dashboard-theme="Classic" id="Classic">classic</button>
+    <button class = "theme-button" update:dashboard-theme="Classic" id="Classic">Classic</button>
     <button  class = "theme-button" update:dashboard-theme="dark mode">dark mode</button>
     <button  class = "theme-button" update:dashboard-theme="fun mode">fun mode</button>
     <script>
@@ -47,8 +52,6 @@
 
     </script>
   </div>
-  
-  {{/if}}
   {{!-- Show errors --}}
   {{#if flashErrors }}
     {{#each flashErrors }}
