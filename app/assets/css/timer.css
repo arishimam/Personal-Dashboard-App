@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;  
+    margin: 20px 0;  
 }
 
 .display-time {
@@ -20,7 +20,7 @@
 }
 
 .timer-buttons {
-    width: 50px;
+    width: 70px;
     height: auto;
     size: 20px;
     border: 1px solid black;

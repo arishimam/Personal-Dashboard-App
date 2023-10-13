@@ -1,1 +1,56 @@
-{}
+{
+    "dashboardTheme": "light mode",
+    "lists": [
+      {
+        "listHeading": "To-Do:",
+        "items": [
+          {
+            "itemText": "Frontend Project 1"
+          },
+          {
+            "itemText": "Exercise 4"
+          },
+          {
+            "itemText": "Cyberattack"
+          }
+        ]
+      },
+      {
+        "listHeading": "Shopping List",
+        "items": [
+          {
+            "itemText": "Toilet Paper"
+          },
+          {
+            "itemText": "Underwear"
+          },
+          {
+            "itemText": "Pants"
+          }
+        ]
+      },
+      {
+        "listHeading": "Short Term Goals",
+        "items": [
+          {
+            "itemText": "Workout Daily"
+          },
+          {
+            "itemText": "Sleep Early"
+          }
+        ]
+      },
+      {
+        "listHeading": "Long Term Goals",
+        "items": [
+          {
+            "itemText": "Be Nicer"
+          },
+          {
+            "itemText": "Get Rich"
+          }
+        ]
+      }
+    ],
+    "id": "OZZFpCPFeenZAf"
+  }
