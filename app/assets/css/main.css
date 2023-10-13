@@ -6,12 +6,17 @@ html[dashboard-theme="Classic"] {
     --third-color: #DB162F;
 }
 
+
 html[dashboard-theme="dark mode"] {
     --bg-color: #000000;
     --text-color: white;
     --accent-color: #C73E1D;
     --other-accent: #A44200;
     --third-color: #4E6766;
+}
+
+html[dashboard-theme="dark mode"] .theme-button{
+    color: white;
 }
 
 html[dashboard-theme="fun mode"] {
@@ -23,7 +28,7 @@ html[dashboard-theme="fun mode"] {
 }
 
 * {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, s'Trebuchet MS', sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     --transition-time: 1s;
 }
 
@@ -176,9 +181,9 @@ a, a:hover, a:focus, a:active {
 }
 
 .loginButton:hover, .signUpButton:hover {
-    color: var(--text-color);
+    color: var(--bg-color);
     width: 200px;
     box-shadow: 0 0 20px var(--third-color);
-    background-color: var(--accent-color);
+    background-color: var(--text-color);
 }
-  
+

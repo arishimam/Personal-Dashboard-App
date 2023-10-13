@@ -8,14 +8,14 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 </head>
 <body>
- 
   {{#if currentUser}}
     <div class = "navbar">
         <img class = "logo" src = "../assets/images/plan-it.png">
-        <a href="/user/logout">Logout</a>
+        <a class="nav__button" href="/user/logout">Logout</a>
         &nbsp;
-        <a href = "/about us/">About Us</a>
         <a class="nav__button" href="/{{currentUser.details.username}}/planner">Planner</a>
+        <a class="nav__button" href="/about">About Us</a>
+        <a class="nav__button" href="/{{currentUser.details.username}}">Home</a>
     </div>
   {{else}}
     <div class = "navbar">
@@ -24,17 +24,15 @@
       &nbsp;
       <a class="nav__button" href="/user/login">Log in</a>
       &nbsp;
-      <a href = "/about us/">About Us</a>
+      <a class="nav__button" href="/about">About Us</a>
+      <a class="nav__button" href="/index">Home</a>
     </div>
 
- 
   <div object key:dashboard-theme="@search">
-    <div target:dashboard-theme="@innerText" id="current-theme" >{{default dashboardTheme "Classic"}}</div>
-    <!--
+    <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "Classic"}}</h2>
     <button class = "theme-button" update:dashboard-theme="Classic" id="Classic">classic</button>
     <button  class = "theme-button" update:dashboard-theme="dark mode">dark mode</button>
     <button  class = "theme-button" update:dashboard-theme="fun mode">fun mode</button>
-    -->
     <script>
       const startingTheme = document.querySelector("#current-theme");
       document.querySelector("html").setAttribute("dashboard-theme", startingTheme.innerText);

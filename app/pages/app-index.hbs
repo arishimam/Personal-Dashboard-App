@@ -7,28 +7,6 @@
 
 <button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
 
-<div object key:dashboard-theme="@search">
-    <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "light mode"}}</h2>
-  
-    <button class = "theme-button" update:dashboard-theme="light mode" id="light-mode">light mode</button>
-    <button  class = "theme-button" update:dashboard-theme="dark mode">dark mode</button>
-    <button  class = "theme-button" update:dashboard-theme="fun mode">fun mode</button>
- 
-    <script>
-      const startingTheme = document.querySelector("#current-theme");
-      document.querySelector("html").setAttribute("dashboard-theme", startingTheme.innerText);
-      const myButtons = document.querySelectorAll("div > button");
-      for(let i = 0; i < myButtons.length; i++) {
-        myButtons[i].addEventListener("click", function(){
-          const newTheme = this.innerText;
-          console.log(this.innerText);
-          document.querySelector("html").setAttribute("dashboard-theme", newTheme);
-        })
-      }
-
-    </script>
-  </div>
-
 <div class="dashboard-container">
   <div class="dashboard" array key="lists" sortable="lists">
     {{#for list in lists}}
@@ -80,7 +58,4 @@
       
     }
   </script>
-
-  
 </div>
-
