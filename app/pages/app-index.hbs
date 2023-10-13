@@ -6,11 +6,13 @@
 <p></p>
 <h1>Hi {{currentUser.details.username}}, welcome to your Personal Dashboard!</h1>
 
+<div class="themes">
     <div object key:dashboard-theme="@search">
-    <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "light mode"}}</h2>
-    <button update:dashboard-theme="light mode" id="light-mode">light mode</button>
-    <button update:dashboard-theme="dark mode">dark mode</button>
-    <button update:dashboard-theme="fun mode">fun mode</button>
+      <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "light mode"}}</h2>
+      <button update:dashboard-theme="light mode" id="light-mode">light mode</button>
+      <button update:dashboard-theme="dark mode">dark mode</button>
+      <button update:dashboard-theme="fun mode">fun mode</button>
+
     <script>
       const startingTheme = document.querySelector("#current-theme");
       document.querySelector("html").setAttribute("dashboard-theme", startingTheme.innerText);
@@ -24,6 +26,7 @@
       }
     </script>
   </div>
+</div>
 
         <div class="timer-container">
       <div>Get some sh*t done. Set a timer!</div>
