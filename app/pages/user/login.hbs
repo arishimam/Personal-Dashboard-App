@@ -1,7 +1,15 @@
-<form action="/user/login" method="post">
-  <h1>Log in</h1>
-  <input type="text" name="username" placeholder="username" required>
-  <input type="password" name="password" placeholder="password" required>
-  <a href="/user/forgot">Forgot your password?</a>
-  <button type="submit">Log in</button>
-</form>
+<body>
+
+<div class = "loginContainer"> 
+  <form action="/user/login" method="post">
+    <h1 class = "loginH1">Login</h1>
+    <h2 class = "usernameHeader">Username </h2>
+    <input class  = "username" type="text" name="username" placeholder="Username" required>
+    <h2 class = "passwordHeader">Password </h2>
+    <input class = "password" type="password" name="password" placeholder="Password" required>
+    <a class = "forgotPassword" href="/user/forgot">Forgot your password?</a>
+    <button class = "loginButton" type="submit">Login</button>
+    <p class = "makeAccount">Don't have an account? <a href = "/user/signup">Create One</a></p>
+  </form>
+</div>
+</body>

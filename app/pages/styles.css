@@ -1,0 +1,57 @@
+body {
+    background-color: #f0f6fb;
+}
+
+.navbar {
+    background-color: white;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: right;
+    font-size: 17px;
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr 1fr;
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 1vw;
+} 
+
+.toDo {
+    border-radius: 10px;
+    background-color: rgba(255, 0, 0, 0.735);
+    overflow: auto;
+}
+
+.toDo h2 {
+    position: relative;
+    margin-left: 2vw;
+}
+
+.toDo button {
+    position: relative;
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+}
+
+.ownImage {
+   
+    background-color: white;
+}
+
+.goals {
+    
+    background-color: white;
+}
+
+.affirmation {
+    border: 1px solid black;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    text-align: center;
+    background-color: white;
+}

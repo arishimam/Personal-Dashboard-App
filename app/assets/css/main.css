@@ -97,3 +97,87 @@ button {
 button:hover {
     background: var(--third-color);
 }
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+}
+
+/*Navbar css, navbar found in app/layouts/default.hbs*/
+.navbar {
+    padding: 3vh;
+    max-height: 3vh;
+}
+
+.navbar a { 
+    color: var(--text-color);
+    font-weight: bold;
+    display: flex;
+    overflow: hidden;
+    font-size: 22px;
+    float: right;
+    margin-right: 15px;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    margin-top: -60px;
+}
+
+/*login and sign up css*/
+.loginContainer, .signUpContainer, .forgotPasswordContainer{
+    margin-top: 12vh;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+}
+
+.loginH1{
+    margin-bottom: 25px;
+}
+
+.usernameHeader, .emailHeader, .passwordHeader, .forgotPassword {
+    color: var(--text-color);
+    display: flex;
+    margin: 25px auto;
+}
+
+.username, .password, .email{
+    display: flex;
+    width: 100vw;
+    max-width: 550px;
+    height: 30px;
+    padding: 5px;
+}
+
+.forgotPassword{
+    font-weight: bold;
+    color: var(--other-accent);
+}
+
+.loginButton, .signUpButton, .resetPassword{
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 600;
+    margin: 0 10px;
+    width: 200px;
+    padding: 10px 0;
+    box-shadow: 0 0 20px var(--other-accent);
+    transition: 0.4s;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.signUpButton, .resetPassword{
+    margin-top: 40px;
+}
+
+.loginButton:hover, .signUpButton:hover {
+    color: var(--bg-color);
+    width: 200px;
+    box-shadow: 0 0 20px var(--third-color);
+    background-color: var(--text-color);
+}
