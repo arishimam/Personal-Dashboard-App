@@ -8,15 +8,16 @@
   <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
 </head>
 <body>
+
   {{#if currentUser}}
 
 <div class = "navbar">
     <img class = "logo" src = "../assets/images/plan-it.png">
-    <div>{{currentUser.details.username}}</div>
-    <a class="nav__button" href="/{{currentUser.details.username}}">Home</a>
-    {{!-- <a class="nav__button" href="/{{currentUser.details.username}}/about">About Us</a> --}}
-    <a class="nav__button" href="/{{currentUser.details.username}}/planner">Planner</a>
+    {{!-- <div>{{currentUser.details.username}}</div> --}}
     <a class="nav__button" href="/user/logout">Logout</a>
+    <a class="nav__button" href="/{{currentUser.details.username}}/about">About Us</a>
+    <a class="nav__button" href="/{{currentUser.details.username}}/planner">Planner</a>
+    <a class="nav__button" href="/{{currentUser.details.username}}">Home</a>
 </div>
 
   {{else}}
