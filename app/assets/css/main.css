@@ -61,8 +61,8 @@ button {
     cursor: pointer;
     text-align: center;
     font-weight: bold;
-    padding: 5px;
     font-size: 18px;
+    padding-top: 5px;
 }
 
 button:hover {
@@ -120,7 +120,7 @@ p {
 
 }
 .list__add-list{
-    margin: 50px;
+    margin: 10px;
 }
 
 /*Navbar css, navbar found in app/layouts/default.hbs*/
@@ -223,4 +223,31 @@ p {
     background-color: var(--third-color);
     padding: 6px;
     border-radius: 5px;
+}
+
+.timer-container {
+    width: 40%;
+    border-radius: 5px;
+    padding: 15px;
+    font-weight: bolder;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Ensures content within the container is centered */
+}
+
+.timer-container button {
+    margin: 10px;
+    text-align: center; /* Center the text inside the button */
+    border: none;  /* Removes default border */
+    outline: none; /* Removes focus border */
+    padding-bottom: 5px;
+}
+
+.timer-parent {
+    display: flex;
+    justify-content: center;
+}
+
+.timer-buttons {
+    display: inline;
+    padding-right: 5px;
 }
