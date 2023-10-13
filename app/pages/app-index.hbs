@@ -12,23 +12,23 @@
       <button update:dashboard-theme="light mode" id="light-mode">light mode</button>
       <button update:dashboard-theme="dark mode">dark mode</button>
       <button update:dashboard-theme="fun mode">fun mode</button>
-
-    <script>
-      const startingTheme = document.querySelector("#current-theme");
-      document.querySelector("html").setAttribute("dashboard-theme", startingTheme.innerText);
-      const myButtons = document.querySelectorAll("div > button");
-      for(let i = 0; i < myButtons.length; i++) {
-        myButtons[i].addEventListener("click", function(){
-          const newTheme = this.innerText;
-          console.log(this.innerText);
-          document.querySelector("html").setAttribute("dashboard-theme", newTheme);
-        })
-      }
-    </script>
-  </div>
+    </div>
 </div>
+<script>
+    const startingTheme = document.querySelector("#current-theme");
+    document.querySelector("html").setAttribute("dashboard-theme", startingTheme.innerText);
+    const myButtons = document.querySelectorAll("div > button");
+    for(let i = 0; i < myButtons.length; i++) {
+      myButtons[i].addEventListener("click", function(){
+        const newTheme = this.innerText;
+        console.log(this.innerText);
+        document.querySelector("html").setAttribute("dashboard-theme", newTheme);
+        })
+    }
+</script>
 
-        <div class="timer-container">
+  <div class="timer-parent">
+    <div class="timer-container">
       <div>Get some sh*t done. Set a timer!</div>
 
       <div class="display-time">
@@ -62,14 +62,13 @@
       <button onclick="pauseResume()" class="timer-buttons" id="pause-btn">Pause</button>
       <button onclick="resetTimer()" class="timer-buttons">Reset</button>
       </div>
-
     </div>
+  </div>
   <button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
   <div class="dashboard" array key="lists" sortable="lists">
     {{#for list in lists}}
       <div 
-        class="list" object key:list-heading="@search" default:list-heading="List"
-      >
+        class="list" object key:list-heading="@search" default:list-heading="List">
         <div class="list__top">
           <h3 
             class="list__text"
@@ -80,19 +79,15 @@
           class="list__items"
           key="items"
           array
-          sortable="items"
-        >
+          sortable="items">
           {{#for item in list.items}}
             <div 
-              class="item" object key:item-text="@search" edit:item-text
-            >
+              class="item" object key:item-text="@search" edit:item-text>
               <input type="checkbox" disable-events onchange="thisTHING(event)">
               <p 
                 class="item__text"
                 target:item-text="@innerText">{{default item.itemText "new list item"}}
                 </p>
-              
-                
             </div>
           {{/for}}
         </div>
@@ -107,7 +102,6 @@
     </div>
   </div>
   <script>
-
     // Timer Stuff
     let timerInterval;
     let timeLeft;
