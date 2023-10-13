@@ -9,14 +9,16 @@
 </head>
 <body>
   {{#if currentUser}}
-    <div class = "navbar">
-        <img class = "logo" src = "../assets/images/plan-it.png">
-        <a class="nav__button" href="/user/logout">Logout</a>
-        &nbsp;
-        <a class="nav__button" href="/{{currentUser.details.username}}/planner">Planner</a>
-        <a class="nav__button" href="/about">About Us</a>
-        <a class="nav__button" href="/{{currentUser.details.username}}">Home</a>
-    </div>
+
+<div class = "navbar">
+    <img class = "logo" src = "../assets/images/plan-it.png">
+    <div>{{currentUser.details.username}}</div>
+    <a class="nav__button" href="/{{currentUser.details.username}}">Home</a>
+    {{!-- <a class="nav__button" href="/{{currentUser.details.username}}/about">About Us</a> --}}
+    <a class="nav__button" href="/{{currentUser.details.username}}/planner">Planner</a>
+    <a class="nav__button" href="/user/logout">Logout</a>
+</div>
+
   {{else}}
     <div class = "navbar">
       <img class = "logo" src = "../assets/images/plan-it.png">

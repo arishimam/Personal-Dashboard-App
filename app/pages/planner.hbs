@@ -1,0 +1,259 @@
+<h2 id="month"></h2>
+<p>Today is, <b id="today"></b></p>
+
+
+<div class="week-container">
+    <div class="day">
+        <div class="day-header">Sunday<b class="date"></b></div>
+        <div
+        object 
+        key="sunday" 
+        class="list">
+            <div
+            array 
+            key="items" 
+            sortable="items" 
+            class="list__items">
+                {{#for item in sunday.items}}
+                <div 
+                object 
+                key:item-text="@search" 
+                edit:item-text
+                class="item">
+                    <p 
+                    target:item-text="@innerText"
+                    class="item__text">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Monday<b class="date"></b></div>
+        <div 
+        object 
+        key="monday"
+        class="list">
+            <div 
+            array 
+            key="items" 
+            sortable="items"
+            class="list__items">
+                {{#for item in monday.items}}
+                <div 
+                object 
+                key:item-text="@search" 
+                edit:item-text
+                class="item">
+                    <p 
+                    target:item-text="@innerText"
+                    class="item__text">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Tuesday<b class="date"></b></div>
+        <div 
+        object 
+        key="tuesday"
+        class="list">
+            <div
+            array 
+            key="items" 
+            sortable="items" 
+            class="list__items">
+                {{#for item in tuesday.items}}
+                <div
+                object 
+                key:item-text="@search" 
+                edit:item-text 
+                class="item">
+                    <p 
+                    target:item-text="@innerText"
+                    class="item__text">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Wednesday<b class="date"></b></div>
+        <div 
+        object 
+        key="wednesday"
+        class="list">
+            <div 
+            array 
+            key="items" 
+            sortable="items"
+            class="list__items">
+                {{#for item in wednesday.items}}
+                <div 
+                object 
+                key:item-text="@search" 
+                edit:item-text
+                class="item">
+                    <p 
+                    object
+                    key:item-text="@search" 
+                    edit:item-text
+                    class="item__text">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Thursday<b class="date"></b></div>
+        <div
+        object 
+        key="thursday" 
+        class="list">
+            <div
+            array 
+            key="items" 
+            sortable="items" 
+            class="list__items">
+                {{#for item in thursday.items}}
+                <div 
+                object 
+                key:item-text="@search" 
+                edit:item-text
+                class="item">
+                    <p
+                    target:item-text="@innerText" 
+                    class="item__text">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Friday<b class="date"></b></div>
+        <div 
+        object 
+        key="friday"
+        class="list">
+            <div
+            array 
+            key="items" 
+            sortable="items" 
+            class="list__items">
+                {{#for item in friday.items}}
+                <div
+                object 
+                key:item-text="@search" 
+                edit:item-text 
+                class="item">
+                    <p
+                    target:item-text="@innerText" 
+                    class="item__text">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+    <div class="day">
+        <div class="day-header">Saturday<b class="date"></b></div>
+        <div 
+        object 
+        key="saturday"
+        class="list">
+            <div
+            array 
+            key="items" 
+            sortable="items" 
+            class="list__items">
+                {{#for item in saturday.items}}
+                <div 
+                object 
+                key:item-text="@search" 
+                edit:item-text
+                class="item">
+                    <p
+                    target:item-text="@innerText" 
+                    class="item__text">{{default item.itemText "new list item"}}</p>
+                </div>
+                {{/for}}
+            </div>
+            <button new:item>Add New Item</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const m = new Date();
+
+    let day = days[m.getDay()];
+    let year = m.getFullYear();
+    let month = months[m.getMonth()].toString().concat(" ", year);
+
+    document.getElementById("month").innerHTML = month;
+    document.getElementById("today").innerHTML = day;
+
+    updateDates();
+    setup();
+
+    function getWeekDates() {
+        const today = new Date();
+        const todayIndex = today.getDay();
+        const weekStart = new Date(today.setDate(today.getDate() - todayIndex));
+
+        const weekDates = [];
+        for (let i = 0; i < 7; i++) {
+            const currentDay = new Date(weekStart);
+            currentDay.setDate(weekStart.getDate() + i);
+            
+            const monthNumber = currentDay.getMonth() + 1;
+            const dayNumber = currentDay.getDate();
+
+            let monthString = monthNumber.toString();
+            let dayString = dayNumber.toString();
+            
+            if (monthNumber < 10) {
+                monthString = '0' + monthString;
+            }
+            if (dayNumber < 10) {
+                dayString = '0' + dayString;
+            }
+
+            const dateString = monthString + '-' + dayString;
+
+            weekDates.push(dateString);
+        }
+        return weekDates;
+    }
+
+
+    function updateDates() {
+        const weekDates = getWeekDates();
+        const dateElements = document.getElementsByClassName("date");
+        for (let i = 0; i < dateElements.length; i++) {
+            dateElements[i].innerHTML = weekDates[i];
+        }
+    }
+
+    function setup() {
+        setInterval(function() {
+            const currentTime = new Date();
+
+            const sunday = currentTime.getDay() == 0;
+            const midnight = currentTime.getHours() == 0;
+
+            if (sunday && midnight) {
+                updateDates();
+            }
+
+        }, 3600000);
+    }
+</script>
