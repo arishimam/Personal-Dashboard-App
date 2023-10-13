@@ -297,3 +297,17 @@ p {
 .landing-text-stuff {
     padding-bottom: 60px;
 }
+
+.landingButton {
+    background-color: rgba(0,0,0,0.785);
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: small;
+}
+
+.landingButton:hover {
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
