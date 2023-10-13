@@ -63,7 +63,79 @@
       </div>
     {{/for}}
   </div>
+    
+    <div class="timer-container">
+      <div class="display-time">
+        <span id="display-hours">00</span>:
+        <span id="display-minutes>">00</span>:
+        <span id="display-seconds">00</span>
+      </div>
+      <div class="time-unit hours">
+        <span>Hours</span>
+        <button onclick="adjustTime('hours', 1)">+</button>
+        <span id="hours">00</span>
+        <button onclick="adjustTime('hours', -1)">-</button>
+      </div>
+      <div class="time-unit minutes">
+        <span>Minutes</span>
+        <button onclick="adjustTime('minutes',1)">+</button>
+        <span id="minutes">00</span>
+        <button onclick="adjustTime('minutes', -1)">-</button>
+      </div>
+      <div class="time-unit seconds">
+        <span>Seconds</span>
+        <button onclick="adjustTime('seconds', 1)">+</button>
+        <span id="seconds">00</span>
+        <button onclick="adjustTime('seconds', -1)">-</button>
+      </div>
+      <button>Start</button>
+      <button>Pause</button>
+      <button>Reset</button>
+    </div>
+  </div>
   <script>
+
+    // Timer Stuff
+    let timerInterval;
+    let timeLeft;
+
+    function adjustTime(unit, value) {
+      let element = document.getElementById(unit);
+      let currentVal = parseInt(element.innerText);
+      let newVal = currentVal + value;
+
+      if (unit === "hours" && (newVal < 0 || newVal > 14))  return;
+      if (unit === "minutes" && (newVal < 0 || newVal > 59))  return;
+      if (unit === "seconds" && (newVal < 0 || newVal > 59))  return;
+
+      element.innerText = newVal.toString().padStart(2, "0");
+    }
+
+    function startTimer() {
+      pauseTimer();
+      let hours = parseInt(document.getElementById("hours").innerText);
+      let minutes = parseInt(document.getElementById("minutes").innerText);
+      let seconds = parseInt(document.getElementById("seconds").innerText);
+      timeLeft = hours * 60 * 60 + minutes * 60 + seconds;
+
+      //Call Update display time function here
+
+      
+
+    }
+
+    function pauseTimer() {
+      console.log(`before clearInterval() ${timerInterval}`);
+      clearInterval(timerInterval);
+      console.log(`after clearInterval() ${timerInterval}`);
+    }
+
+    function resetTimer() {
+      pauseTimer();
+      document.getElementById("hours").innerText="00";
+      document.getElementById("minutes").innerText="00";
+      document.getElementById("seconds").innerText="00";
+    }
     function thisTHING(event) {
       const myText = event.target.nextElementSibling;
       if(event.target.checked) {

@@ -7,13 +7,16 @@ html[dashboard-theme="light mode"] {
 }
 
 html[dashboard-theme="dark mode"] {
-    --bg-color: #000000;
+    --bg-color: #353030;
     --text-color: white;
     --accent-color: #C73E1D;
     --other-accent: #A44200;
     --third-color: #4E6766;
 }
 
+html[dashboard-theme="dark mode"] button {
+    color: white;
+}
 html[dashboard-theme="fun mode"] {
     --bg-color: hotpink;
     --text-color: #000000;
