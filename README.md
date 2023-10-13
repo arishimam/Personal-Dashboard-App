@@ -1,3 +1,9 @@
+Group Members: 
+Arish Imam
+Victoria Parry
+KJ Jennings
+Andrew Delos Reyes
+
 # Create an app! 🪂
 
 Create your first Remake app
