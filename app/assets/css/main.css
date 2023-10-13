@@ -251,3 +251,11 @@ p {
     display: inline;
     padding-right: 5px;
 }
+
+#error-messages {
+    margin-top: 15px;
+    color: red;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
