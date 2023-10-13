@@ -31,8 +31,8 @@
 <button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>  
 <div class="dashboard-container">
   <button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
-  <div class="dashboard" array key="def-lists" sortable="def-lists">
-    
+  <div class="dashboard" array key="lists" sortable="lists">
+{{!--     
           <!-- Default List 1 -->
         <div class="list" object key:list-heading="@search">
             <div class="list__top">
@@ -128,7 +128,7 @@
             <div class="list__add-item-container">
                 <button class="list__add-item" new:item><span class="material-icons">add</span></button>
             </div>
-        </div>
+        </div> --}}
     {{#for list in lists}}
       <div 
         class="list" object key:list-heading="@search" default:list-heading="List"
