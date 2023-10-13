@@ -17,6 +17,11 @@ html[dashboard-theme="dark mode"] {
 html[dashboard-theme="dark mode"] button {
     color: white;
 }
+
+html[dashboard-theme="dark mode"] .timer-buttons {
+    color: white;
+    border: 1px white solid;
+}
 html[dashboard-theme="fun mode"] {
     --bg-color: hotpink;
     --text-color: #000000;
@@ -183,4 +188,8 @@ a, a:hover, a:focus, a:active {
     width: 200px;
     box-shadow: 0 0 20px var(--third-color);
     background-color: var(--text-color);
+}
+
+.dashboard-container {
+    margin-top: 15px;
 }

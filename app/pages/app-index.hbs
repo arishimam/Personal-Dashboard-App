@@ -1,11 +1,12 @@
 {{!-- Dashboard Theme --}}
 <link rel="stylesheet" type="text/css" href="/assets/css/_remake.css">
 <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/timer.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <p></p>
 <h1>Hi {{currentUser.details.username}}, welcome to your Personal Dashboard!</h1>
 
-<button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
+
      <div object key:dashboard-theme="@search">
     <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "light mode"}}</h2>
     <button update:dashboard-theme="light mode" id="light-mode">light mode</button>
@@ -26,7 +27,105 @@
     </script>
   </div>
 <div class="dashboard-container">
-  <div class="dashboard" array key="lists" sortable="lists">
+  <button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
+  <div class="dashboard" array key="def-lists" sortable="def-lists">
+    
+          <!-- Default List 1 -->
+        <div class="list" object key:list-heading="@search">
+            <div class="list__top">
+                <h3 class="list__text" target:list-heading="@innerText" edit:list-heading>
+                    To-Do:
+                </h3>
+            </div>
+            <div class="list__items" key="items" array sortable="items">
+                <!-- Default Item for List 1 -->
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <input type="checkbox" disable-events onchange="thisTHING(event)">
+                    <p class="item__text" target:item-text="@innerText">Frontend Project 1</p>
+                </div>
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <input type="checkbox" disable-events onchange="thisTHING(event)">
+                    <p class="item__text" target:item-text="@innerText">Exercise 4</p>
+                </div>
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <input type="checkbox" disable-events onchange="thisTHING(event)">
+                    <p class="item__text" target:item-text="@innerText">Cyberattack</p>
+                </div>
+            </div>
+            <div class="list__add-item-container">
+                <button class="list__add-item" new:item><span class="material-icons">add</span></button>
+            </div>
+        </div>
+        <!-- Default List 2 -->
+        <div class="list" object key:list-heading="@search">
+            <div class="list__top">
+                <h3 class="list__text" target:list-heading="@innerText" edit:list-heading>
+                    Shopping List
+                </h3>
+            </div>
+            <div class="list__items" key="items" array sortable="items">
+                <!-- Default Item for List 2 -->
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <input type="checkbox" disable-events onchange="thisTHING(event)">
+                    <p class="item__text" target:item-text="@innerText">Toilet Paper</p>
+                </div>
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <input type="checkbox" disable-events onchange="thisTHING(event)">
+                    <p class="item__text" target:item-text="@innerText">Underwear</p>
+                </div>
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <input type="checkbox" disable-events onchange="thisTHING(event)">
+                    <p class="item__text" target:item-text="@innerText">Pants</p>
+                </div>
+            <div class="list__add-item-container">
+                <button class="list__add-item" new:item><span class="material-icons">add</span></button>
+            </div>
+        </div>
+        </div>
+                <!-- Default List 3 -->
+        <div class="list" object key:list-heading="@search">
+            <div class="list__top">
+                <h3 class="list__text" target:list-heading="@innerText" edit:list-heading>
+                    Short Term Goals
+                </h3>
+            </div>
+            <div class="list__items" key="items" array sortable="items">
+                <!-- Default Item for List 3 -->
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <input type="checkbox" disable-events onchange="thisTHING(event)">
+                    <p class="item__text" target:item-text="@innerText">Workout Daily</p>
+                </div>
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <input type="checkbox" disable-events onchange="thisTHING(event)">
+                    <p class="item__text" target:item-text="@innerText">Sleep Early</p>
+                </div>
+            </div>
+            <div class="list__add-item-container">
+                <button class="list__add-item" new:item><span class="material-icons">add</span></button>
+            </div>
+        </div>
+        <!-- Default List 4 -->
+        <div class="list" object key:list-heading="@search">
+            <div class="list__top">
+                <h3 class="list__text" target:list-heading="@innerText" edit:list-heading>
+                    Long Term Goals
+                </h3>
+            </div>
+            <div class="list__items" key="items" array sortable="items">
+                <!-- Default Items for List 4 -->
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <input type="checkbox" disable-events onchange="thisTHING(event)">
+                    <p class="item__text" target:item-text="@innerText">Be Nicer</p>
+                </div>
+                <div class="item" object key:item-text="@search" edit:item-text>
+                    <input type="checkbox" disable-events onchange="thisTHING(event)">
+                    <p class="item__text" target:item-text="@innerText">Get Rich</p>
+                </div>
+            </div>
+            <div class="list__add-item-container">
+                <button class="list__add-item" new:item><span class="material-icons">add</span></button>
+            </div>
+        </div>
     {{#for list in lists}}
       <div 
         class="list" object key:list-heading="@search" default:list-heading="List"
@@ -65,32 +164,41 @@
   </div>
     
     <div class="timer-container">
+      <div>Get some sh*t done. Set a timer!</div>
+
       <div class="display-time">
         <span id="display-hours">00</span>:
         <span id="display-minutes">00</span>:
         <span id="display-seconds">00</span>
       </div>
-      <div class="time-unit hours">
-        <span>Hours</span>
+      <div class="time-controls">
+        <div class="time-unit hours">
+        <span>Hrs:</span>
         <button onclick="adjustTime('hours', 1)">+</button>
         <span id="hours">00</span>
         <button onclick="adjustTime('hours', -1)">-</button>
       </div>
       <div class="time-unit minutes">
-        <span>Minutes</span>
+        <span>Min:</span>
         <button onclick="adjustTime('minutes',1)">+</button>
         <span id="minutes">00</span>
         <button onclick="adjustTime('minutes', -1)">-</button>
       </div>
       <div class="time-unit seconds">
-        <span>Seconds</span>
+        <span>Sec:</span>
         <button onclick="adjustTime('seconds', 1)">+</button>
         <span id="seconds">00</span>
         <button onclick="adjustTime('seconds', -1)">-</button>
       </div>
+      </div>
+
+      <div id="timer-btns">
       <button onclick="startTimer()" class="timer-buttons">Start</button>
       <button onclick="pauseResume()" class="timer-buttons" id="pause-btn">Pause</button>
       <button onclick="resetTimer()" class="timer-buttons">Reset</button>
+      </div>
+
+    </div>
     </div>
   </div>
   <script>
@@ -114,33 +222,25 @@
     }
 
     function startTimer() {
-      if (timerStarted) return; // If the timer is already started, don't start it again.
+        clearInterval(timerInterval); // Clear any existing intervals
+        
+        let hours = parseInt(document.getElementById("hours").innerText);
+        let minutes = parseInt(document.getElementById("minutes").innerText);
+        let seconds = parseInt(document.getElementById("seconds").innerText);
+        
+        timeLeft = hours * 3600 + minutes * 60 + seconds;
+        displayTime();
 
-      let hours = parseInt(document.getElementById("hours").innerText);
-      let minutes = parseInt(document.getElementById("minutes").innerText);
-      let seconds = parseInt(document.getElementById("seconds").innerText);
-      timeLeft = hours * 60 * 60 + minutes * 60 + seconds;
-
-      if (timeLeft <= 0) return;  // Prevent the timer from starting if the time is set to 0.
-
-      timerStarted = true;
-      isPaused = false;
-      document.getElementById("pause-btn").innerText = "Pause";
-
-      displayTime();
-
-      timerInterval = setInterval(() => {
-          if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            alert("Time's up!");
-          } else {
+        timerInterval = setInterval(() => {
             timeLeft -= 1;
             displayTime();
-          }
-      }, 1000);
+            
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                alert("Time's up!");
+            }
+        }, 1000);
     }
-
-
 
     function displayTime() {
       let currHour = Math.floor(timeLeft/3600);
@@ -154,40 +254,39 @@
       document.getElementById("display-seconds").innerText = currSec.toString().padStart(2,"0");
     }
     
-      function pauseResume() {
-        if (!timerStarted) {
-            startTimer();
-            return;
-        }
-
+    function pauseResume() {
         if (isPaused) {
             resumeTimer();
         } else {
             pauseTimer();
         }
-      }
+    }
 
 
-      function pauseTimer() {
-          clearInterval(timerInterval);
-          document.getElementById("pause-btn").innerText = "Resume";
-          isPaused = true;
-      }
+
+    function pauseTimer() {
+        clearInterval(timerInterval);
+        document.getElementById("pause-btn").innerText = "Resume";
+        isPaused = true;
+    }
 
 
     function resumeTimer() {
-      timerInterval = setInterval(() => {
-        if (timeLeft <= 0) {
-          clearInterval(timerInterval);
-          alert("Time's up!");
-        } else {
-          timeLeft -= 1;
-          displayTime();
+        if (isPaused) {
+            timerInterval = setInterval(() => {
+                timeLeft -= 1;
+                displayTime();
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("Time's up!");
+                }
+            }, 1000);
+            document.getElementById("pause-btn").innerText = "Pause";
+            isPaused = false;
         }
-      }, 1000);
-      document.getElementById("pause-btn").innerText = "Pause";
-      isPaused = false;
     }
+
 
     function resetTimer() {
       pauseTimer();
