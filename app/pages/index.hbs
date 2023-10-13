@@ -1,8 +1,41 @@
-<h1>Welcome to my app!</h1>
-<ul>
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+
+<section class = "cta">
   {{#if currentUser}}
-    <li><a href="/{{currentUser.details.username}}">Go to your dashboard</a></li>
+    <h1 class = "landingHeader">Welcome back {{currentUser.details.username}}!</h1>
+    <a class = "landingButton" href="/{{currentUser.details.username}}">Go to your dashboard</a>
   {{else}}
-    <li><a href="/user/signup">Sign up for an account</a></li>
+
+    
   {{/if}}
-</ul>
+</section>
+
+<div class = "landing-container">
+  <div class="landing-text-stuff">
+    <h1 class = "landingHeader">Plan your life today!</h1>
+    <p class = "landingText">Organize your week with a weekly schedule!</p>
+    <p class = "landingText">Make any list of your choosing!</p>
+    <p class = "landingText">Keep track of your goals!</p>
+    <a class = "landingButton" href="/user/signup">Sign up for an account</a>
+  </div>
+
+    <div class="gallery">
+      <div class="large-image">
+          <img style = "width:800px;" id="currentImage" src="/assets/images/dashboard-light.png">
+      </div>
+      <div class="thumbnails">
+          <img class="thumbnail-img" style = "width:150px;" src="/assets/images/dashboard-light.png" onclick="changeImage('/assets/images/dashboard-light.png')">
+          <img class="thumbnail-img" style = "width:150px;" src="/assets/images/dashboard-dark.png" onclick="changeImage('/assets/images/dashboard-dark.png')">
+          <img class="thumbnail-img" style = "width:150px;" src="/assets/images/planner-light.png" onclick="changeImage('/assets/images/planner-light.png')">
+          <img class="thumbnail-img" style = "width:150px;" src="/assets/images/planner-dark.png" onclick="changeImage('/assets/images/planner-dark.png')">
+      </div>
+    </div>
+  </div>
+<script>
+  function changeImage(imageSrc) {
+    const currentImage = document.getElementById('currentImage');
+    currentImage.src = imageSrc;
+}
+</script>
+  
+

@@ -259,3 +259,40 @@ p {
     text-align: center;
     font-weight: bold;
 }
+
+.landing-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 100px;
+
+}
+
+.large-image, .thumbnail-img {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 0px 10px;
+
+}
+
+.thumbnail-img:hover {
+    opacity: 0.7; /* You can adjust this value as needed */
+    transition: opacity 0.3s; /* This ensures a smooth transition effect */
+    border: 4px solid black;
+}
+
+.thumbnails {
+    margin: 15px; 
+}
+
+.gallery {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thumbnail-img {
+    width: 150px;
+    height: auto; 
+}
+
