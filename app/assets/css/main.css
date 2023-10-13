@@ -1,9 +1,10 @@
 html[dashboard-theme="light mode"] {
-    --bg-color: #fffbd9;
+    --bg-color: white;
     --text-color: black;
     --accent-color: #48BBFF;
     --other-accent: #2A7F62;
     --third-color: #DB162F;
+    --border-color: black;
 }
 
 html[dashboard-theme="dark mode"] {
@@ -31,8 +32,15 @@ html[dashboard-theme="fun mode"] {
 }
 
 * {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Courier New', Courier, monospace;    
     --transition-time: 0s;
+    text-decoration: none;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
 }
 
 .material-icons {
@@ -44,28 +52,35 @@ html[dashboard-theme="fun mode"] {
     display: flex;
 }
 
-.list {
-    border-radius: 15px;
-    border-color: var(--text-color);
+button {
+    background-color: #333;
+    border: none;
     padding: 10px;
-    margin: 10px;
-    border-width: 2px;
-    border-style: solid;
-    display:block;
-    width: 175px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em; 
+}
 
+button:hover {
+    background: var(--third-color);
+}
+
+.list {
+    background-color:var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    flex-grow: 1; /* allows flex items to grow and fill the container */
+    margin: 0 10px; /* reduced margin for better spacing */
+    padding: 10px;
+    min-height: 70vh; /* minimum height is 50% of the viewport height */
+    box-sizing: border-box;
 }
 
 .list__text {
     text-align: center;
     font-weight: bold;
-    font-style: italic;
     color: var(--accent-color);
-
-}
-
-.item {
-    display: flex;
 }
 
 .item__text {
@@ -76,9 +91,18 @@ html[dashboard-theme="fun mode"] {
     transition: background-size 0.5s;
 }
 
-/*.item__text:hover {
-    background-size: 100% 100%;
-}*/
+
+.item {
+    display: flex;
+}
+
+.item__text {
+    background: linear-gradient(var(--other-accent), var(--other-accent));
+    background-repeat: no-repeat;
+  
+    background-size: 0px 100%;
+    transition: background-size 0.5s;
+}
 
 html,
 body {
@@ -93,43 +117,35 @@ p {
     transition: var(--transition-time)
 
 }
-
-button {
-    background: transparent;
-    outline: none;
-    border: none;
-    transition: all 0.25s;
-    border-radius: 100px;
+.list__add-list{
+    margin: 50px;
 }
-
-button:hover {
-    background: var(--third-color);
-}
-
-a, a:hover, a:focus, a:active {
-    text-decoration: none;
-}
-
 /*Navbar css, navbar found in app/layouts/default.hbs*/
+
 .navbar {
-    padding: 3vh;
-    max-height: 3vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+    padding: 10px 20px; 
+    position: fixed; 
+    top: 0;
+    width: 97%;
+    background-color: #ffffff;
+    height: 4vh; 
 }
 
-.navbar a { 
+.navbar a {
     color: var(--text-color);
     font-weight: bold;
-    display: flex;
-    overflow: hidden;
+    text-decoration: none; /* Removes the typical underline of hyperlinks */
     font-size: 22px;
-    float: right;
-    margin-right: 15px;
+    margin-left: 20px; /* Space between links, applied to the left to space items from the right */
 }
 
 .logo {
-    width: 150px;
-    height: 150px;
-    margin-top: -60px;
+    width: 200px; /* Reduced size based on typical navbar */
+    height: 200px; /* Keeps it a square */
+    margin-right: auto;  /* Pushes the rest of the items to the right */
 }
 
 /*login and sign up css*/

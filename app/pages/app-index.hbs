@@ -7,7 +7,8 @@
 <h1>Hi {{currentUser.details.username}}, welcome to your Personal Dashboard!</h1>
 
 
-     <div object key:dashboard-theme="@search">
+
+    <div object key:dashboard-theme="@search">
     <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "light mode"}}</h2>
     <button update:dashboard-theme="light mode" id="light-mode">light mode</button>
     <button update:dashboard-theme="dark mode">dark mode</button>
@@ -26,6 +27,8 @@
 
     </script>
   </div>
+
+<button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>  
 <div class="dashboard-container">
   <button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
   <div class="dashboard" array key="def-lists" sortable="def-lists">

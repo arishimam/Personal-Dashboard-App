@@ -1,0 +1,104 @@
+.starter {
+    display: flex;
+    flex-direction: column; /* stacks children elements (month and today) on top of each other */
+    align-items: center; /* centers children elements */
+    justify-content: center;
+    margin-top: 60px;
+    font-size: xx-large;
+    font-weight: bolder;
+    width: 100%; /* makes sure the div takes full width of its parent, which helps in centering */
+}
+
+.date-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns the text to the center */
+}
+
+#month, #today {
+    margin: 0; /* Removes any default margin */
+    padding: 0.25rem; /* Adds a bit of space around the text */
+    font-size: xx-large;
+    font-weight: bolder;
+    text-align: center; /* Ensures the text is centered within its container */
+}
+
+.week-container {
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    justify-content: space-between; /* distributes the space between the flex items */
+    flex-wrap: wrap; /* allows the flex items to wrap onto the next line */
+}
+
+.day {
+    background-color:white;
+    border: 1px black;
+    border-style: solid;
+    border-radius: 5px;
+    flex-grow: 1; /* allows flex items to grow and fill the container */
+    margin: 0 10px; /* reduced margin for better spacing */
+    padding: 10px;
+    min-height: 70vh;
+    box-sizing: border-box;
+}
+.day-header {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 18px; /* fixed font size, change as needed */
+}
+/* Specific styles for each day-header with soft background colors */
+.day:nth-child(1) .day-header { 
+    background-color: rgba(255, 193, 7, 0.3); /* Sunday */
+    color: rgba(255, 193, 7, 1);
+}
+.day:nth-child(2) .day-header { 
+    background-color: rgba(76, 175, 80, 0.3); /* Monday */
+    color: rgba(76, 175, 80, 1);
+}
+.day:nth-child(3) .day-header { 
+    background-color: rgba(33, 150, 243, 0.3); /* Tuesday */
+    color: rgba(33, 150, 243, 1);
+}
+.day:nth-child(4) .day-header { 
+    background-color: rgba(156, 39, 176, 0.3); /* Wednesday */
+    color: rgba(156, 39, 176, 1);
+}
+.day:nth-child(5) .day-header { 
+    background-color: rgba(244, 67, 54, 0.3); /* Thursday */
+    color: rgba(244, 67, 54, 1);
+}
+.day:nth-child(6) .day-header { 
+    background-color: rgba(255, 87, 34, 0.3); /* Friday */
+    color: rgba(255, 87, 34, 1);
+}
+.day:nth-child(7) .day-header { 
+    background-color: rgba(0, 150, 136, 0.3); /* Saturday */
+    color: rgba(0, 150, 136, 1);
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em; 
+}
+
+@media (max-width: 1000px) {
+    .day {
+        margin-bottom: 20px; /* additional bottom margin for wrapped items */
+    }
+}
+
+@media (max-width: 600px) {
+    .day {
+        flex-basis: 100%; /* makes flex items full width */
+        margin: 10px 0; /* adjusts margin for smaller screens */
+    }
+}
