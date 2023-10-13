@@ -190,6 +190,20 @@
 </div>
 
 <script>
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const m = new Date();
+
+    let day = days[m.getDay()];
+    let year = m.getFullYear();
+    let month = months[m.getMonth()].toString().concat(" ", year);
+
+    document.getElementById("month").innerHTML = month;
+    document.getElementById("today").innerHTML = day;
+
+    updateDates();
+    setup();
+
     function getWeekDates() {
         const today = new Date();
         const todayIndex = today.getDay();
@@ -199,10 +213,27 @@
         for (let i = 0; i < 7; i++) {
             const currentDay = new Date(weekStart);
             currentDay.setDate(weekStart.getDate() + i);
-            weekDates.push(`${currentDay.getMonth() + 1}-${currentDay.getDate()}`);
+            
+            const monthNumber = currentDay.getMonth() + 1;
+            const dayNumber = currentDay.getDate();
+
+            let monthString = monthNumber.toString();
+            let dayString = dayNumber.toString();
+            
+            if (monthNumber < 10) {
+                monthString = '0' + monthString;
+            }
+            if (dayNumber < 10) {
+                dayString = '0' + dayString;
+            }
+
+            const dateString = monthString + '-' + dayString;
+
+            weekDates.push(dateString);
         }
         return weekDates;
     }
+
 
     function updateDates() {
         const weekDates = getWeekDates();
@@ -213,28 +244,16 @@
     }
 
     function setup() {
-        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const m = new Date();
+        setInterval(function() {
+            const currentTime = new Date();
 
-        let day = days[m.getDay()];
-        let year = m.getFullYear();
-        let month = months[m.getMonth()].toString().concat(" ", year);
+            const sunday = currentTime.getDay() == 0;
+            const midnight = currentTime.getHours() == 0;
 
-        document.getElementById("month").innerHTML = month;
-        document.getElementById("today").innerHTML = day;
-
-        updateDates();
-
-        // Set interval to check every hour if it's time to update the week
-        setInterval(() => {
-            const now = new Date();
-            if (now.getDay() === 0 && now.getHours() === 0) { // it's Sunday midnight
-                updateDates(); // start new week
+            if (sunday && midnight) {
+                updateDates();
             }
-        }, 3600000); // check every hour
-    }
 
-    // initial setup
-    setup();
+        }, 3600000);
+    }
 </script>
