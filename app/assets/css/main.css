@@ -130,7 +130,7 @@ p {
     position: fixed; 
     top: 0;
     width: 97%;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     height: 4vh; 
 }
 
