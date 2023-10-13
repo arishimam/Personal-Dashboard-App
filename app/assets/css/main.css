@@ -1,5 +1,5 @@
 html[dashboard-theme="light mode"] {
-    --bg-color: #ffeed3;
+    --bg-color: #FFFFFF;
     --text-color: black;
     --accent-color: #48BBFF;
     --other-accent: #2A7F62;
@@ -7,15 +7,11 @@ html[dashboard-theme="light mode"] {
 }
 
 html[dashboard-theme="dark mode"] {
-    --bg-color: #302b2b;
+    --bg-color: #000000;
     --text-color: white;
     --accent-color: #C73E1D;
     --other-accent: #A44200;
     --third-color: #4E6766;
-}
-
-html[dashboard-theme="dark mode"] .theme-button{
-    color: white;
 }
 
 html[dashboard-theme="fun mode"] {
