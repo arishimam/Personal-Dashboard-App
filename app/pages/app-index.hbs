@@ -1,23 +1,41 @@
 {{!-- Dashboard Theme --}}
 <link rel="stylesheet" type="text/css" href="/assets/css/_remake.css">
+<link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <p></p>
-
 <h1>Welcome to your Personal Dashboard!</h1>
 
-<button new:list>Create New List</button>
+<button class="list__add-list" new:list><span class="material-icons">format_list_bulleted_add</span></button>
+     <div object key:dashboard-theme="@search">
+    <h2 target:dashboard-theme="@innerText" id="current-theme">{{default dashboardTheme "light mode"}}</h2>
+    <button update:dashboard-theme="light mode" id="light-mode">light mode</button>
+    <button update:dashboard-theme="dark mode">dark mode</button>
+    <button update:dashboard-theme="fun mode">fun mode</button>
+    <script>
+      const startingTheme = document.querySelector("#current-theme");
+      document.querySelector("html").setAttribute("dashboard-theme", startingTheme.innerText);
+      const myButtons = document.querySelectorAll("div > button");
+      for(let i = 0; i < myButtons.length; i++) {
+        myButtons[i].addEventListener("click", function(){
+          const newTheme = this.innerText;
+          console.log(this.innerText);
+          document.querySelector("html").setAttribute("dashboard-theme", newTheme);
+        })
+      }
 
+    </script>
+  </div>
 <div class="dashboard-container">
   <div class="dashboard" array key="lists" sortable="lists">
     {{#for list in lists}}
       <div 
         class="list" object key:list-heading="@search" default:list-heading="List"
-        style = "border: 1px solid gray; width:200px;"
       >
         <div class="list__top">
-          <p 
+          <h3 
             class="list__text"
             target:list-heading="@innerText" edit:list-heading>{{default list.listHeading "New List"}}
-            </p>
+            </h3>
         </div>
         <div 
           class="list__items"
@@ -29,18 +47,33 @@
             <div 
               class="item" object key:item-text="@search" edit:item-text
             >
+              <input type="checkbox" disable-events onchange="thisTHING(event)">
               <p 
                 class="item__text"
-                style = "border: .5px solid gray; width: 150px;"
                 target:item-text="@innerText">{{default item.itemText "new list item"}}
                 </p>
+              
+                
             </div>
           {{/for}}
         </div>
         <div class="list__add-item-container">
-          <button class="list__add-item" new:item>add new item</button>
+          <button class="list__add-item" new:item><span class="material-icons">add</span></button>
         </div>
       </div>
     {{/for}}
   </div>
+  <script>
+    function thisTHING(event) {
+      const myText = event.target.nextElementSibling;
+      if(event.target.checked) {
+        myText.style.backgroundSize = "100% 100%";
+      }
+      else {
+        myText.style.backgroundSize = "0% 100%";
+      }
+      
+      
+    }
+  </script>
 </div>
